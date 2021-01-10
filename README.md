@@ -1,6 +1,6 @@
 ## Project 02 - Final
-**Project Name:** [Project Name]
-**Team Members:** Jacky Chen, Vincent Jiang, Cullen Ye
+**Project Name:** [Project Name]\
+**Team Members:** Jacky Chen, Vincent Jiang, Cullen Ye\
 **Class Period:** Period 10
 
 ### Project Description:
@@ -16,3 +16,5 @@
 ---
 
 ### How To Use Project:
+
+---
