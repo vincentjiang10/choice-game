@@ -30,9 +30,13 @@ The player can pull up the menu, save the game, and other features at any point 
 ---
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
+
 **Basic Structure:** Jacky, Vincent, Cullen
+
 **Implementing Signals:** Jacky
+
 **Implementing Picture Library:** Vincent
+
 **Implementing Save File System:** Cullen
 
 ### Files:
