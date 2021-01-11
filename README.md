@@ -27,7 +27,6 @@ The player can pull up the menu, save the game, and other features at any point 
 - Customize the protagonist's name.
 - Custom-drawn pictures.
 
----
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
 
@@ -38,6 +37,8 @@ The player can pull up the menu, save the game, and other features at any point 
 **Implementing Picture Library:** Vincent
 
 **Implementing Save File System:** Cullen
+
+---
 
 ### Files:
 ## main.c
@@ -54,6 +55,3 @@ The player can pull up the menu, save the game, and other features at any point 
 ## sys/stat.h
 ## signal.h
 ## stb_image.h
-
----
-
