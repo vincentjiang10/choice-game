@@ -38,11 +38,7 @@ void reader(char * address, char * buffer){
 struct Node makeNode(char str [256], char * buffer) {
     struct Node node;
     strcpy(node.address, str);
-    printf("address: %s\n", node.address);
-    //char msg[] = 
     reader(node.address, buffer);
-    // 
-    //printf("%s\n", msg);
     int len = strlen(str);
     if (len == 10) exit(0); // for now it's exit, but we can add a special function (endgame()) that ends the game
     char add[256], choice[10];
