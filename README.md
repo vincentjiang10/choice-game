@@ -26,6 +26,7 @@ The player can pull up the menu, save the game, and other features at any point 
 - Multiple save files. (Working with files + file stats)
 - Customize the protagonist's name.
 - Custom-drawn pictures.
+- Ask the player if they want to enable autosave.
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
