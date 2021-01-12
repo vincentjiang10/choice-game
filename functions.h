@@ -8,9 +8,10 @@ struct Node {
 
 int makeChoice();
 
-struct Node makeNode(char str[]);
+struct Node makeNode(char str[], char * buffer);
 
 // reader function 
+void reader(char * address, char * buffer);
 // end game function
 // picture implementation function
 

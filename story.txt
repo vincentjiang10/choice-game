@@ -1,5 +1,7 @@
-0:
-You wake up in the woods. There's a pickaxe.
-(1) You pick up the axe.
-(2) You don't pick up the axe.
-NULL
+0You wake up in the woods. There's a pickaxe.
+
+|(1) You pick up the axe.
+|(2) You don't pick up the axe.
+|NULL
+|
+

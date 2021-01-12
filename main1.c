@@ -4,6 +4,8 @@
 #include <signal.h>
 #include <string.h>
 #include "functions.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 /** reads and returns the text from story.txt at address
 char * reader(char *address);
@@ -21,25 +23,51 @@ int makeChoice() {
     return atoi(choice);
 }
 
-struct Node makeNode(char str [256]) {
+// reads and prints the text from story.txt at address
+void reader(char * address, char * buffer){
+    char *x = strstr(buffer, address);
+    x++;
+
+    int i;
+    for(i = 0; x[i] != '|'; i++){
+        printf("%c", x[i]);
+    }
+    x++;
+    int k;
+    for (k = 0; k < 3; k ++){
+      for(; x[i] != '|'; i++){
+        printf("%c", x[i]);
+      }
+      x++;
+    }
+    printf("\n");
+}
+
+struct Node makeNode(char str [256], char * buffer) {
     struct Node node;
     strcpy(node.address, str);
     printf("address: %s\n", node.address);
-    //char msg[] = reader(address);
-    // printf("%s\n", msg);
+    //char msg[] = 
+    reader(node.address, buffer);
+    // 
+    //printf("%s\n", msg);
     int len = strlen(str);
     if (len == 10) exit(0); // for now it's exit, but we can add a special function (endgame()) that ends the game
     char add[256], choice[10];
     strcpy(add, str);
     sprintf(choice, "%d", makeChoice());
     strcat(add, choice);
-    makeNode(add);
+    makeNode(add, buffer);
 }
 
 int main() {
+    // loads in story.txt into a buffer
+    char buffer[5000];
+    int fd = open("story.txt", O_RDONLY);
+    read(fd, buffer, sizeof(buffer));
     // at the start, check with user whether he wants to load a save file
     // start at root (new game) if not
-    struct Node root = makeNode("0");
+    struct Node root = makeNode("0", buffer);
     // start at the checkpoint if yes
     // struct Node save = makeNode(address) // address is imported from save file function
   
