@@ -54,4 +54,5 @@ The player can pull up the menu, save the game, and other features at any point 
 ## stdlib.h 
 ## sys/stat.h
 ## signal.h
+## string.h
 ## stb_image.h
