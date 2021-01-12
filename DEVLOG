@@ -5,3 +5,4 @@ Contributed by: Vincent Jiang
 - created general main file structure and design 
 - created intial makefile
 - created function.h
+- created picture_addresses.txt
