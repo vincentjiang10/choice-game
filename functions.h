@@ -5,6 +5,9 @@ struct Node {
     char address[256];
 };
 
+// function to save the game at any given point
+void saveGame();
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice);
 
