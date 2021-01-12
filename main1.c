@@ -26,19 +26,11 @@ int makeChoice() {
 // prints the text from story.txt at address
 void reader(char * address, char * buffer){
     char *x = strstr(buffer, address);
-    x+=sizeof(address);
+    x+=strlen(address);
 
     int i;
     for(i = 0; x[i] != '|'; i++){
         printf("%c", x[i]);
-    }
-    x++;
-    int k;
-    for (k = 0; k < 3; k ++){
-      for(; x[i] != '|'; i++){
-        printf("%c", x[i]);
-      }
-      x++;
     }
     printf("\n");
 }
