@@ -1,19 +1,38 @@
 // format
-// Address1, Address2, Address3 ... |text to be printed| 
+// Address1, Address2, Address3 ... |text to be printed|
 
-0,01,02,03|You wake up in the woods. There's a pickaxe.
+0|
+You wake up in the woods. There's a pickaxe.
 
 (1) You pick up the axe.
 (2) You don't pick up the axe.
 (3) You cut yourself...|
+
+01|
+You kill yourself with the axe.
+
+(1) Choice 1.
+(2) Choice 2.|
+
+02|
+You fall on the axe.
+
+(1) Choice 1.
+(2) Choice 2.
+(3) Choice 3.|
+
+03|
+You bandage yourself.
+
+(1) Choice 1.
+(2) Choice 2.|
 
 011|Address011|
 012|Address012|
 
 021|Address021|
 022|Address022|
+023|Address023|
 
 031|Address031|
 032|Address032|
-
-
