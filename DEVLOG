@@ -16,3 +16,4 @@ Contributed by: Vincent Jiang
 - created numChoice.txt
 - simplified main structure/design
 - code open to story writing
+- code able to point to same entry for multiple addresses

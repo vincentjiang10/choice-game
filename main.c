@@ -23,16 +23,17 @@ int makeChoice(int numChoice) {
 void reader(char * address, char * buffer){
     char *x = strstr(buffer, address);
     x+=strlen(address);
-    int i;
-    for (i = 0; x[i] != '|'; i++) printf("%c", x[i]);
+    int i; for (i = 0; x[i] != '|'; x++); x++;
+    int k; for (k = 0; x[k] != '|'; k++) printf("%c", x[k]);
     printf("\n");
 }
 
 // second reader; returns the number of choices at address
 int reader2(char * address, char * buffer) {
-    char *x = strstr(buffer, address);
-    x+=strlen(address)+1;
-    return atoi(x);
+    char *y = strstr(buffer, address);
+    y+=strlen(address);
+    int i; for (i = 0; y[i] != ':'; y++); y++;
+    return atoi(y);
 }
 
 // makes node and links to next node recursively
@@ -57,9 +58,11 @@ int main() {
     int fd = open("story.txt", O_RDONLY);
     read(fd, buffer, sizeof(buffer));
     // loads numChoice.txt into another buffer
-    char buffer2[10];
+    close(fd);
+    char buffer2[256];
     int fd2 = open("numChoice.txt", O_RDONLY);
     read(fd2, buffer2, sizeof(buffer2));
+    close(fd2);
     //----------------------------------------
     // at the start, check with user whether to load a save file
     // start at root (new game) if not
