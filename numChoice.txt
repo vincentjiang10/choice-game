@@ -1,5 +1,5 @@
 // format
 // Address1, Address2, Address3 ... :numChoice
 
-0 :3
-01, 02, 03 :2
+0, 02 :3
+01, 03 :2
