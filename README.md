@@ -4,7 +4,7 @@
 **Class Period:** Period 10
 
 ### Project Description:
-The project will be a choose-your-own adventure visual novel game. The gameplay will be in first-person, text-based, with images showing up throughout the story. Your choices matter and will result in different endings. We will be allocating memory (kept in our data structure's unique string address) to keep track of your current story location. We will be using stdin for player choice input. We'll be using linked lists to create a branching storyline.\
+The project will be a choose-your-own adventure visual novel game. The gameplay will be in first-person, text-based, with images showing up throughout the story. Your choices matter and will result in different endings. We will be allocating memory (kept in our data structure's unique string address) to keep track of your current story location. We will be using stdin for player choice input. We'll be using linked-list-like data structure to create a branching storyline.\
 There will be a save file for the player, which remembers the path the player saved, and will return the player to their saved story location (implementing signals to exit and save). The game will keep track of when the game was last saved. We will be working with files and analyzing previous save files' metadata (stat) to accomplish this.\
 The player can pull up the menu, save the game, and other features at any point during the game. This will be accomplished through overriding signals. At the end of the game, memory will be cleared so that users can start over, or they can resume the novel using the saved data from save files.
 
