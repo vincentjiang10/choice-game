@@ -3,15 +3,11 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <string.h>
-#include "functions.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include "functions.h"
 
-/** reads and returns the text from story.txt at address
-char * reader(char *address);
-**/
-
-// code which makes the choice (takes in stdin int)
+// function which makes the choice (takes in stdin int)
 int makeChoice() {
     printf("Input choice #: ");
     char choice [10];
