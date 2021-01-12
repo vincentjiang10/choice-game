@@ -1,1 +1,7 @@
 DEVLOG:
+
+1/12/2021 5 AM
+Contributed by: Vincent Jiang
+- created general main file structure and design 
+- created intial makefile
+- created function.h
