@@ -26,7 +26,7 @@ int makeChoice() {
 // prints the text from story.txt at address
 void reader(char * address, char * buffer){
     char *x = strstr(buffer, address);
-    x++;
+    x+=sizeof(address);
 
     int i;
     for(i = 0; x[i] != '|'; i++){
