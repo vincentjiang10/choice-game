@@ -17,3 +17,10 @@ Contributed by: Vincent Jiang
 - simplified main structure/design
 - code open to story writing
 - code able to point to same entry for multiple addresses
+
+1/12/2021 6 PM
+Contributed by: Cullen Ye
+- added global String to track current Node
+- created savefile.txt
+- able to load in a save file
+- able to save the game at any given point
