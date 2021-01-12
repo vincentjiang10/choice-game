@@ -23,7 +23,7 @@ int makeChoice() {
     return atoi(choice);
 }
 
-// reads and prints the text from story.txt at address
+// prints the text from story.txt at address
 void reader(char * address, char * buffer){
     char *x = strstr(buffer, address);
     x++;
