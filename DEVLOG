@@ -29,3 +29,7 @@ Contributed by: Cullen Ye
 Contributed by: Vincent Jiang
 - better implementation of redirection and reader
 - added format and structure for story telling
+
+1/13/2021 1 AM
+Contributed by: Jacky Chen
+- associated SIGQUIT signal with saving

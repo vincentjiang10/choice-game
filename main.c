@@ -75,6 +75,12 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     makeNode(add, buffer, buffer2);
 }
 
+static void sighandler(int signo){
+    if (signo == SIGQUIT){  // Ctrl + "\"
+        saveGame();
+    }
+}
+
 int main() {
     // loads in story.txt into a buffer
     char buffer[5000];
