@@ -38,12 +38,11 @@ int makeChoice(int numChoice) {
 
 // prints the text from story.txt at address
 void reader(char * address, char * buffer){
-    char *x = strstr(buffer, address);
+    char add [256];
+    strcpy(add, address);
+    strcat(add, " ");
+    char *x = strstr(buffer, add);
     x+=strlen(address);
-    // include redirect helper function. 
-    // If x includes format redirect:new_address, reset new y 
-    // char *y = strstr(buffer, new_address); etc.
-    // else, below code (simply - first loop can be manually implement through x++)
     int i; for (i = 0; x[i] != '|'; x++); x++;
     int k; for (k = 0; x[k] != '|'; k++) printf("%c", x[k]);
     printf("\n");

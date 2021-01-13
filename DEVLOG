@@ -24,3 +24,8 @@ Contributed by: Cullen Ye
 - created savefile.txt
 - able to load in a save file
 - able to save the game at any given point
+
+1/12/2021 8 PM
+Contributed by: Vincent Jiang
+- better implementation of redirection and reader
+- added format and structure for story telling
