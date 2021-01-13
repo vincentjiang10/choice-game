@@ -7,7 +7,6 @@
 #include <unistd.h>
 #include "functions.h"
 
-int globalint = 1;
 char currentaddress[256]; // To keep track of what node we're currently at.
 
 // FUNCTION TO SAVE THE GAME AT ANY GIVEN POINT.
@@ -61,6 +60,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
     reader(node.address, buffer);
     int len = strlen(str);
+    // in the future, not using len but actually checking last char in string
+    // if particular char, say T, terminate and initiate end game function
     if (len == 10) exit(0); // for now it's exit, but we can add a special function (endgame()) that ends the game
     char add[256], choice[10];
     strcpy(add, str);
@@ -84,27 +85,27 @@ int main() {
     close(fd2);
     //----------------------------------------
     // at the start, check with user whether to load a save file
-    while (globalint) {
+    while (1) {
       printf("Would you like to load in a saved file? (y/n)\n");
       char buffer3[3];
       fgets(buffer3, sizeof(buffer3), stdin);
 
       // IF THE USER INPUTS 'n' AND DOES NOT WISH TO LOAD A SAVE FILE.
       if (buffer3[0]=='n') { // start at root (new game)
-        globalint=0;
         char address[10] = "0";
         struct Node root = makeNode(address, buffer, buffer2);
+        break;
       }
 
       // IF THE USER INPUTS 'y' AND DOES WISH THE LOAD A SAVE FILE.
       else if (buffer3[0]=='y') { // start at the checkpoint
         printf("Loading game from saved checkpoint...\n");
-        globalint=0;
         char address[10];
         int fd3 = open("savefile.txt", O_RDONLY);
         read(fd3, address, sizeof(address));
         close(fd);
         struct Node save = makeNode(address, buffer, buffer2); // address is imported from save file function
+        break;
       }
 
       else printf("Invalid input. Type 'y' or 'n'.\n");
