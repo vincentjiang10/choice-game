@@ -43,11 +43,14 @@ The player can pull up the menu, save the game, and other features at any point 
 
 ### Files:
 ## main.c
-## func.h
+## functions.h
 ## makefile
+## savefile.txt
+## story.txt
+## numChoice.txt
+## picture_addresses.txt
 ## README.md
 ## DEVLOG
-
 ---
 
 ### Required Libraries:
