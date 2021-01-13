@@ -2,7 +2,7 @@ DEVLOG:
 
 1/12/2021 6 AM
 Contributed by: Vincent Jiang
-- created general main file structure and design 
+- created general main.c file structure and design 
 - created intial makefile
 - created functions.h
 - created picture_addresses.txt
