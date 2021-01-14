@@ -33,3 +33,7 @@ Contributed by: Vincent Jiang
 1/13/2021 1 AM
 Contributed by: Jacky Chen
 - associated SIGQUIT signal with saving
+
+1/13/2021 10 PM
+Contributed by: Cullen Ye
+- Edited save function. Can't save if you just started.
