@@ -31,6 +31,9 @@ The player can pull up the menu, save the game, and other features at any point 
 
 ### Current Issues To Fix:
 
+### Limitations:
+- Can't type too much from stdin into the buffers. They are each size 256.
+
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
 
