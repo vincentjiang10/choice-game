@@ -82,9 +82,11 @@ static void sighandler(int signo){
     if (signo == SIGQUIT){  // Ctrl + "\"
         saveGame();
     }
+
 }
 
 int main() {
+    signal(SIGQUIT, sighandler);
     // loads in story.txt into a buffer
     char buffer[5000];
     int fd = open("story.txt", O_RDONLY);
