@@ -30,6 +30,7 @@ int makeChoice(int numChoice) {
       if (!strcmp(currentaddress, "0")) printf("Can't go back. You're at the beginning!\n");
       else return atoi("10");
     }
+    if (!strcmp(choice, "quit\n")) exit(0);
     if (!strcmp(choice, "save\n")) {
       while (!strcmp(choice, "save\n")) {
         saveGame();
@@ -90,10 +91,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 }
 
 static void sighandler(int signo){
-    if (signo == SIGQUIT){  // Ctrl + "\"
-        saveGame();
-    }
-
+    if (signo == SIGQUIT) saveGame();  // Ctrl + "\" 
 }
 
 int main() {
@@ -108,7 +106,7 @@ int main() {
     int fd2 = open("numChoice.txt", O_RDONLY);
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);
-    //----------------------------------------
+
     // at the start, check with user whether to load a save file
     while (1) {
       printf("Would you like to load in a saved file? (y/n)\n");

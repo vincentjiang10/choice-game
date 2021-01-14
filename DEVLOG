@@ -47,3 +47,7 @@ Contributed by: Cullen Ye
 1/14/2021 2 AM
 Contributed by: Jacky Chen
 - implemented going back by typing "back" as the input
+
+1/14/2021 11 PM
+Contributed by: Vincent Jiang 
+- added quit implementation: program exits upon user input "quit"
