@@ -11,10 +11,13 @@ char currentaddress[256]; // To keep track of what node we're currently at.
 
 // FUNCTION TO SAVE THE GAME AT ANY GIVEN POINT.
 void saveGame() {
-  printf("Saved Game!\n");
-  int fd = open("savefile.txt", O_WRONLY);
-  write(fd, currentaddress, sizeof(currentaddress));
-  close(fd);
+  if (!strcmp(currentaddress, "0")) printf("No need to save. You're at the beginning!\n\n");
+  else {
+    printf("Saved Game!\n");
+    int fd = open("savefile.txt", O_WRONLY);
+    write(fd, currentaddress, sizeof(currentaddress));
+    close(fd);
+  }
 }
 
 // function which makes the choice (takes in stdin int)
@@ -106,8 +109,8 @@ int main() {
         break;
       }
 
-      // IF THE USER INPUTS 'y' AND DOES WISH THE LOAD A SAVE FILE.
-      else if (buffer3[0]=='y') { // start at the checkpoint
+      // IF THE USER INPUTS 'y' AND DOES WISH TO LOAD A SAVE FILE.
+      else if (buffer3[0]=='y') { // start at the most recently saved checkpoint
         printf("Loading game from saved checkpoint...\n");
         char address[10];
         int fd3 = open("savefile.txt", O_RDONLY);
@@ -117,9 +120,11 @@ int main() {
         break;
       }
 
+      // IF THE USER INPUTS ANYTHING OTHER THAN 'n' OR 'y'.
       else printf("Invalid input. Type 'y' or 'n'.\n");
 
     }
 
     return 0;
 }
+
