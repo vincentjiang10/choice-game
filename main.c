@@ -20,11 +20,16 @@ void saveGame() {
   }
 }
 
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice) {
     printf("Input choice #: ");
     char choice [10];
     fgets(choice, sizeof(choice), stdin);
+    if (!strcmp(choice, "back\n")){
+      if (!strcmp(currentaddress, "0")) printf("Can't go back. You're at the beginning!\n");
+      else return atoi("10");
+    }
     if (!strcmp(choice, "save\n")) {
       while (!strcmp(choice, "save\n")) {
         saveGame();
@@ -76,7 +81,11 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
     sprintf(choice, "%d", makeChoice(numChoice));
-    strcat(add, choice);
+    if (!strcmp(choice, "10")){
+      add[strlen(add)-1] = 0;
+    }
+    else{
+    strcat(add, choice);}
     makeNode(add, buffer, buffer2);
 }
 

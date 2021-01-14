@@ -39,7 +39,7 @@ The player can pull up the menu, save the game, and other features at any point 
 
 **Basic Structure:** Jacky, Vincent, Cullen
 
-**Implementing Signals:** Jacky
+**Implementing Signals and Miscellaneous Functions:** Jacky
 
 **Implementing Picture Library:** Vincent
 

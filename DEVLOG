@@ -43,3 +43,7 @@ Contributed by: Cullen Ye
 - Fixed 2 bugs:
 1) Can't save twice in a row. (Leads to segmentation fault.)
 2) "Invalid input" error message for 'y' or 'n' is printed multiple times.
+
+1/14/2021 2 AM
+Contributed by: Jacky Chen
+- implemented going back by typing "back" as the input
