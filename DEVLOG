@@ -37,3 +37,9 @@ Contributed by: Jacky Chen
 1/13/2021 10 PM
 Contributed by: Cullen Ye
 - Edited save function. Can't save if you just started.
+
+1/14/2021 12 AM
+Contributed by: Cullen Ye
+- Fixed 2 bugs:
+1) Can't save twice in a row. (Leads to segmentation fault.)
+2) "Invalid input" error message for 'y' or 'n' is printed multiple times.
