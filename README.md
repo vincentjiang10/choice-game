@@ -30,8 +30,6 @@ The player can pull up the menu, save the game, and other features at any point 
 - Ask the player if they want to enable autosave.
 
 ### Current Issues To Fix:
-- Can't save twice in a row. (Leads to segmentation fault.)
-- When the screen prompts you with "Would you like to load in a saved file? (y/n)", if you type a String other than 'y' or 'n', the error message is printed multiple times, equal to the length of the String.
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
