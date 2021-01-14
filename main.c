@@ -11,7 +11,7 @@ char currentaddress[256]; // To keep track of what node we're currently at.
 
 // FUNCTION TO SAVE THE GAME AT ANY GIVEN POINT.
 void saveGame() {
-  if (!strcmp(currentaddress, "0")) printf("No need to save. You're at the beginning!\n\n");
+  if (!strcmp(currentaddress, "0")) printf("No need to save. You're at the beginning!\n");
   else {
     printf("Saved Game!\n");
     int fd = open("savefile.txt", O_WRONLY);
@@ -26,9 +26,11 @@ int makeChoice(int numChoice) {
     char choice [10];
     fgets(choice, sizeof(choice), stdin);
     if (!strcmp(choice, "save\n")) {
-      saveGame();
-      printf("Input choice #: ");
-      fgets(choice, sizeof(choice), stdin);
+      while (!strcmp(choice, "save\n")) {
+        saveGame();
+        printf("Input choice #: ");
+        fgets(choice, sizeof(choice), stdin);
+      }
     }
     else {
       while (atoi(choice) < 1 || atoi(choice) > numChoice) {
@@ -101,8 +103,16 @@ int main() {
     // at the start, check with user whether to load a save file
     while (1) {
       printf("Would you like to load in a saved file? (y/n)\n");
-      char buffer3[3];
+      char buffer3[256];
       fgets(buffer3, sizeof(buffer3), stdin);
+
+      // IF THE USER INPUTS ANYTHING OTHER THAN 'n' OR 'y'.
+      if (strcmp(buffer3, "y\n")&&strcmp(buffer3, "n\n")) {
+        while (strcmp(buffer3, "y\n")&&strcmp(buffer3, "n\n")) {
+          printf("Invalid input. Type 'y' or 'n'.\n");
+          fgets(buffer3, sizeof(buffer3), stdin);
+        }
+      }
 
       // IF THE USER INPUTS 'n' AND DOES NOT WISH TO LOAD A SAVE FILE.
       if (buffer3[0]=='n') { // start at root (new game)
@@ -122,11 +132,7 @@ int main() {
         break;
       }
 
-      // IF THE USER INPUTS ANYTHING OTHER THAN 'n' OR 'y'.
-      else printf("Invalid input. Type 'y' or 'n'.\n");
-
     }
 
     return 0;
 }
-
