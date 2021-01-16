@@ -1,3 +1,2 @@
-// same idea as story writing with the address, but instead includes the addresses of picture files
 // format
 // Address :picture.jpg
