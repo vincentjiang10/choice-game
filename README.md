@@ -68,7 +68,7 @@ The player can pull up the menu, save the game, and other features at any point 
 ## ImageMagick
 
 ### Apt-Get + Prerequisites
-// to be updated
+// to be updated\
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require the installation of an X-server (i.e. Xming, vcXsrv)
 run the following code:
 $ sudo apt-get install imagemagick
