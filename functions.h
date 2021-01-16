@@ -8,6 +8,15 @@ struct Node {
 // function to save the game at any given point
 void saveGame();
 
+// function to autosave the game
+void autoSave();
+
+// function to prompt & enable/disable autosave
+void promptAutosave();
+
+// function to prompt & load in savefile
+void promptLoadfile(char *buffer, char *buffer2);
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice);
 
