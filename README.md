@@ -70,12 +70,11 @@ The player can pull up the menu, save the game, and other features at any point 
 ### Apt-Get + Prerequisites
 // to be updated\
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require the installation of an X-server (i.e. Xming, vcXsrv)
-run the following code:
-$ sudo apt-get install imagemagick
-(maybe) $ sudo apt-get install lxde 
-$ export DISPLAY=:0.0
-
-Try and test out 
+run the following code:\
+$ sudo apt-get install imagemagick\
+(maybe) $ sudo apt-get install lxde\ 
+$ export DISPLAY=:0.0\
+// Try and test out 
 
 ### Instructions 
 // to be updated
