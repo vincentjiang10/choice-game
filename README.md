@@ -23,11 +23,9 @@ The player can pull up the menu, save the game, and other features at any point 
 ### Possible Additions (if we have enough time):
 - Add quick-time choices. (Use the wait() function)
 - Include a pause option. (Signals)
-- Multiple save files. (Working with files + file stats)
-- Keep track of when every save file was saved. (read the metadata)
+- Keep track of when the save file was saved. (read the metadata)
 - Customize the protagonist's name.
 - Custom-drawn pictures.
-- Ask the player if they want to enable autosave.
 
 ### Current Issues To Fix:
 
