@@ -57,3 +57,8 @@ Contributed by: Cullen Ye
 - Edited a bunch of formatting.
 - Implemented autosave function.
 - Fixed bug where you couldn't 'back' or 'quit' after 'save'.
+
+1/14/2021 2 AM
+Contributed by: Vincent Jiang
+- added sudo apt-get instructions
+- started implementing pictures to story
