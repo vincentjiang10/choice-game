@@ -51,3 +51,9 @@ Contributed by: Jacky Chen
 1/14/2021 11 PM
 Contributed by: Vincent Jiang 
 - added quit implementation: program exits upon user input "quit"
+
+1/15/2021 7 PM
+Contributed by: Cullen Ye
+- Edited a bunch of formatting.
+- Implemented autosave function.
+- Fixed bug where you couldn't 'back' or 'quit' after 'save'.
