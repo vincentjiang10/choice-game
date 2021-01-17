@@ -23,7 +23,6 @@ The player can pull up the menu, save the game, and other features at any point 
 ### Possible Additions (if we have enough time):
 - Add quick-time choices. (Use the wait() function)
 - Include a pause option. (Signals)
-- Customize the protagonist's name.
 - Custom-drawn pictures.
 
 ### Current Issues To Fix:
