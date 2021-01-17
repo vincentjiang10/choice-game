@@ -76,5 +76,5 @@ $ sudo apt-get install imagemagick\
 // Try and test out 
 
 ### Instructions 
-// to be updated
+// to be updated\
 // To be included (or fixed) later: throughout the program, please close image files after each decision input before continuing. Failure to do so would stop the program from running. 
