@@ -62,3 +62,8 @@ Contributed by: Cullen Ye
 Contributed by: Vincent Jiang
 - added sudo apt-get instructions
 - started implementing pictures to story
+
+1/16/2021 10 PM
+Contributed by: Cullen Ye
+- Used metadata to find when the game was last saved; displays it when loading save file.
+- Because of the 'back' function, I removed the restriction on saving at the beginning.
