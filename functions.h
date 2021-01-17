@@ -33,7 +33,8 @@ void reader(char * address, char * buffer);
 int reader2(char * address, char * buffer);
 
 // end game function
-// picture implementation function
-// void display(char * address);
+
+// displays image at address
+void display(char * address);
 
 #endif

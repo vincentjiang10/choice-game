@@ -47,6 +47,7 @@ Contributed by: Cullen Ye
 1/14/2021 2 AM
 Contributed by: Jacky Chen
 - implemented going back by typing "back" as the input
+- added pics folder and pictures
 
 1/14/2021 11 PM
 Contributed by: Vincent Jiang 
@@ -60,9 +61,10 @@ Contributed by: Cullen Ye
 
 1/14/2021 2 AM
 Contributed by: Vincent Jiang
-- added sudo apt-get instructions
-- started implementing pictures to story
+- added initial sudo apt-get instructions
+- started implementing pictures to story (through ImageMagick)
 - removed picture_addresses.txt for simplier implementation
+- modified format for numChoice.txt to include whether an address has a picture file
 
 1/16/2021 10 PM
 Contributed by: Cullen Ye
