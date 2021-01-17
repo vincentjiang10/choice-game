@@ -24,6 +24,8 @@ The player can pull up the menu, save the game, and other features at any point 
 - Add quick-time choices. (Use the wait() function)
 - Include a pause option. (Signals)
 - Custom-drawn pictures.
+- Items
+- Mini-games
 
 ### Current Issues To Fix:
 
