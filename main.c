@@ -95,6 +95,10 @@ void promptLoadfile(char *buffer, char *buffer2) {
 
 }
 
+void help() {
+  // print and summarize features
+}
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice) {
     printf("Input choice #: ");
@@ -119,6 +123,10 @@ int makeChoice(int numChoice) {
 
     // If the player types 'quit'
     if (!strcmp(choice, "quit\n")) exit(0);
+
+    // If the player types 'help'
+    // help function
+
     else {
       while (atoi(choice) < 1 || atoi(choice) > numChoice) {
           printf("Input invalid. Please try again: ");

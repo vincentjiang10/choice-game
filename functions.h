@@ -32,6 +32,9 @@ void reader(char * address, char * buffer);
 // second reader; returns the number of choices at address
 int reader2(char * address, char * buffer);
 
+// function that summarizes program features and utilities
+void help();
+
 // end game function
 
 // displays image at address
