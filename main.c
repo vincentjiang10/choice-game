@@ -128,6 +128,13 @@ int makeChoice(int numChoice) {
     return atoi(choice);
 }
 
+// returns whether there is a picture file at address
+char reader0(char * address, char * buffer) {
+  char *x = strstr(buffer, address);
+  x+=strlen(address);
+  return x[0];
+}
+
 // prints the text from story.txt at address
 void reader(char * address, char * buffer){
     char add [256];
@@ -142,10 +149,10 @@ void reader(char * address, char * buffer){
 
 // second reader; returns the number of choices at address
 int reader2(char * address, char * buffer) {
-    char *y = strstr(buffer, address);
-    y+=strlen(address);
-    int i; for (i = 0; y[i] != ':'; y++); y++;
-    return atoi(y);
+    char *x = strstr(buffer, address);
+    x+=strlen(address);
+    int i; for (i = 0; x[i] != ':'; x++); x++;
+    return atoi(x);
 }
 
 static void sighandler(int signo){
@@ -161,6 +168,7 @@ static void sighandler(int signo){
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     struct Node node;
+    // if reader0(node.address, buffer2) is true, then display
     // display(str) // helper function for displaying images
     strcpy(node.address, str);
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.

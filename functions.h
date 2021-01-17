@@ -23,6 +23,9 @@ int makeChoice(int numChoice);
 // makes node and connects to next node recursively
 struct Node makeNode(char str[], char * buffer, char * buffer2);
 
+// returns whether there is a picture file at address
+char reader0(char * address, char * buffer);
+
 // prints the text from story.txt at address
 void reader(char * address, char * buffer);
 
