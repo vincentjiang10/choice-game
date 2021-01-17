@@ -31,5 +31,6 @@ int reader2(char * address, char * buffer);
 
 // end game function
 // picture implementation function
+// void display(char * address);
 
 #endif

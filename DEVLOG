@@ -62,6 +62,7 @@ Contributed by: Cullen Ye
 Contributed by: Vincent Jiang
 - added sudo apt-get instructions
 - started implementing pictures to story
+- removed picture_addresses.txt for simplier implementation
 
 1/16/2021 10 PM
 Contributed by: Cullen Ye

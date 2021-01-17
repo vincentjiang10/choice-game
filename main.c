@@ -155,9 +155,13 @@ static void sighandler(int signo){
     }
 }
 
+// use address as the title for image, i.e. display address.jpg
+// void display(char * address) {stuff} 
+
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     struct Node node;
+    // display(str) // helper function for displaying images
     strcpy(node.address, str);
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
     if (autosave) autoSave();
