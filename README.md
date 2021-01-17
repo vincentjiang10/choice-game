@@ -26,6 +26,7 @@ The player can pull up the menu, save the game, and other features at any point 
 - Custom-drawn pictures.
 - Items
 - Mini-games
+- Awards
 
 ### Current Issues To Fix:
 
