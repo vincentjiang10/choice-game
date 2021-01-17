@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <time.h>
 #include <signal.h>
 #include <string.h>
 #include <fcntl.h>
@@ -12,27 +13,18 @@ int autosave = 0; // If 0, then autosave is off. If 1, then autosave is on.
 
 // Function to save the game.
 void saveGame() {
-  // If we're at the beginning of the game, don't save.
-  if (!strcmp(currentaddress, "0")) printf("No need to save. You're at the beginning!\n");
-
-  // Otherwise, save.
-  else {
-    printf("Saved Game!\n");
-    int fd = open("savefile.txt", O_WRONLY);
-    write(fd, currentaddress, sizeof(currentaddress));
-    close(fd);
-  }
+  printf("Saved Game!\n");
+  int fd = open("savefile.txt", O_WRONLY);
+  write(fd, currentaddress, sizeof(currentaddress));
+  close(fd);
   printf("Input choice #: ");
 }
 
 // Function to autosave. Basically saveGame() but without the text prompts. (It happens in the background).
 void autoSave() {
-  // If we're not at the beginning of the game, autosave.
-  if (strcmp(currentaddress, "0")) {
-    int fd = open("savefile.txt", O_WRONLY);
-    write(fd, currentaddress, sizeof(currentaddress));
-    close(fd);
-  }
+  int fd = open("savefile.txt", O_WRONLY);
+  write(fd, currentaddress, sizeof(currentaddress));
+  close(fd);
 }
 
 // Function to prompt the player if they want to enable autosave. Enables autosave if desired.
@@ -73,23 +65,34 @@ void promptLoadfile(char *buffer, char *buffer2) {
     }
   }
 
+  char address[10];
+
   // If the player types 'y', attempt to load the savefile.
-  if (promptResponse[0]=='y') { // start at the most recently saved checkpoint
+  if (promptResponse[0]=='y') {
     printf("Looking for save file...\n");
-    char address[10];
     int fd = open("savefile.txt", O_RDONLY);
     read(fd, address, sizeof(address));
     close(fd);
-    if (!strcmp(address, "0")) printf("You have no save file. Loading from beginning of the game...\n");
-    else printf("Found save file. Loading from last saved checkpoint...\n");
-    struct Node save = makeNode(address, buffer, buffer2);
+
+    // If savefile.txt doesn't start with E, then a save file exists.
+    if (address[0]!='E') {
+      struct stat sb;
+      stat("./savefile.txt", &sb);
+      printf("Found save file, last saved on: %s", ctime(&(sb.st_mtime)));
+      printf("Loading from last saved checkpoint...\n");
+    }
+
+    // If savefile.txt starts with E, then no save file exists.
+    else {
+      printf("You have no save file. Loading from beginning of the game...\n");
+    }
   }
 
-  // If the player types 'n', start the game at the beginning.
-  if (promptResponse[0]=='n') {
-    char address[10] = "0";
-    struct Node root = makeNode(address, buffer, buffer2);
-  }
+  // If the player types 'n', then the program automatically comes here.
+  address[0] = '0'; // If savefile.txt only had an 'E', then this replaces that 'E' with a '0'.
+                    // If savefile.txt had a save file, then this wouldn't change anything.
+  struct Node node = makeNode(address, buffer, buffer2); // Load in the game.
+
 }
 
 // function which makes the choice (takes in stdin int)
