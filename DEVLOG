@@ -75,3 +75,5 @@ Contributed by: Cullen Ye
 Contributed by: Vincent Jiang
 - created help function to guide user throughout program
 - created display function to test picture display
+- implemented restart function
+- implemented processes to display images

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/wait.h>
 #include "functions.h"
 
 char currentaddress[256]; // To keep track of what node we're currently at.
@@ -105,7 +106,11 @@ void promptLoadfile(char *buffer, char *buffer2) {
 
 // print and summarize features
 void help() {
-  printf("testing; incomplete\n");
+  printf("------------------------------------------\n");
+  printf("type quit or exit to quit the game\n");
+  printf("type back to move back to last scene\n");
+  printf("type save or do Ctrl '\' to save the game at current scene\n");
+  printf("--------------------------------------------\n");
 }
 
 // function which makes the choice (takes in stdin int)
@@ -123,10 +128,16 @@ int makeChoice(int numChoice) {
     }
 
     // If the player types 'help'
-    if (!strcmp(choice, "help\n")) help();
+    if (!strcmp(choice, "help\n")) {
+      help();
+      return makeChoice(numChoice);
+    }
 
     // If the player types 'quit'
-    if (!strcmp(choice, "quit\n")) exit(0);
+    if (!strcmp(choice, "quit\n") || !strcmp(choice, "exit\n")) {
+      printf("\nHope you had fun!\n");
+      exit(0);
+    }
 
     // If the player types 'save'
     if (!strcmp(choice, "save\n")) {
@@ -189,17 +200,40 @@ static void sighandler(int signo){
     }
 }
 
-// use address as the title for image, i.e. display address.jpg
-// function for displaying images
+char ** parse_args(char * line) {
+  char **args = malloc(sizeof(char*)*100);
+  char *p = line;
+
+  int i;
+  for (i=0; p!=NULL; i++) {
+    args[i] = strsep(&p, " ");
+  }
+  args[i] = NULL;
+  return args;
+}
+
+// function for displaying images; use address as the title for image, i.e. display address.jpg
 void display(char * address) {
-  // incomplete
-  printf("incomplete");
+  char line[256] = "display -resize 500x500 pics/";
+  strcat(line, address); strcat(line, ".jpg");
+  printf("the display command: %s", line);
+  char **args = parse_args(line);
+  execvp(args[0], args);
 } 
 
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     struct Node node;
-    if ('y' == reader0(str, buffer2)) display(str);
+    // may need to include processes to display pictures
+    int f, status;
+    if ('y' == reader0(str, buffer2)) {
+      int f, status; 
+      f = fork();
+      // child process displaying images 
+      if (!f) display(str);
+      // parent process waiting for child process
+      else {int childpid = waitpid(f, &status, 0);}
+    }
     strcpy(node.address, str);
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
     if (autosave) autoSave();
@@ -235,6 +269,17 @@ int main() {
     close(fd2);
 
     // at the start, check with user whether to load a save file
+    printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
+    printf("Linux users usually have an inbuilt X server: able to run this program right away\n");
+    printf("\nNote: make sure to install ImageMagick before running this program\n");
+    printf("To install: $ sudo apt-get install imagemagick\n");
+    printf("Have you installed ImageMagick? (y/n)\n");
+    char ans[10]; fgets(ans, sizeof(ans), stdin);
+    if (ans[0] == 'n') {
+      printf("\nPlease install ImageMagick to run this program\n");
+      printf("You can remove ImageMagick after using: $ sudo apt-get remove imageiagick\n");
+      exit(0);
+    }
     printf("\nNOTE: type in \"help\" anytime expand program features and utilities\n");
     while (1) {
       // Autosave Prompt:

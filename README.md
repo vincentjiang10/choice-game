@@ -4,7 +4,7 @@
 **Class Period:** Period 10
 
 ### Project Description:
-The project will be a choose-your-own adventure visual novel game. The gameplay will be in first-person, text-based, with images showing up throughout the story. Your choices matter and will result in different endings. We will be **_allocating memory_** (kept in our data structure's unique string address) to keep track of your current story location and will be using a linked-list-like data structure to create a branching storyline. We will be using stdin for player choice input.\
+The project will be a choose-your-own adventure visual novel game. The gameplay will be in first-person, text-based, with images showing up throughout the story, which are child **_processes_** that the parent process (main program) waits on. Your choices matter and will result in different endings. We will be **_allocating memory_** (kept in our data structure's unique string address) to keep track of your current story location and will be using a linked-list-like data structure to create a branching storyline. We will be using stdin for player choice input.\
 There will be a save file for the player, which remembers the path the player saved, and will return the player to their saved story location. The game will keep track of when the game was last saved. We will be **_working with files_** and analyzing previous save files' **_metadata_** (stat) to accomplish this. We will also work with files to read in the story line upon user input and interaction (this includes the display of image files as well).\
 The player can pull up the menu, save the game, exit, and perform other features at any point during the game. This will be accomplished through overriding **_signals_**. At the end of the game, memory will be cleared so that users can start over, or they can resume the novel using the saved data from save files.
 
@@ -19,6 +19,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 2) Working with files
 3) Finding information about files
 4) Signals
+5) Processes
 
 ### Possible Additions (if we have enough time):
 - Add quick-time choices. (Use the wait() function)
@@ -69,6 +70,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### string.h
 #### fcntl.h
 #### unistd.h
+#### sys/wait.h
 #### ImageMagick
 
 ### Apt-Get + Prerequisites

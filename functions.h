@@ -37,6 +37,9 @@ void help();
 
 // end game function
 
+// helper function for display()
+char ** parse_args(char * line);
+
 // displays image at address
 void display(char * address);
 
