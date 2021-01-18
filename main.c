@@ -18,7 +18,6 @@ void saveGame() {
   int fd = open("savefile.txt", O_WRONLY);
   write(fd, currentaddress, sizeof(currentaddress));
   close(fd);
-  printf("Input choice #: ");
 }
 
 // Function to autosave. Basically saveGame() but without the text prompts. (It happens in the background).
@@ -128,27 +127,25 @@ int makeChoice(int numChoice) {
     }
 
     // If the player types 'help'
-    if (!strcmp(choice, "help\n")) {
+    else if (!strcmp(choice, "help\n")) {
       help();
       return makeChoice(numChoice);
     }
 
     // If the player types 'quit'
-    if (!strcmp(choice, "quit\n") || !strcmp(choice, "exit\n")) {
+    else if (!strcmp(choice, "quit\n") || !strcmp(choice, "exit\n")) {
       printf("\nHope you had fun!\n");
       exit(0);
     }
 
     // If the player types 'save'
-    if (!strcmp(choice, "save\n")) {
-      while (!strcmp(choice, "save\n")) {
-        saveGame();
-        fgets(choice, sizeof(choice), stdin);
-      }
+    else if (!strcmp(choice, "save\n")) {
+      saveGame();
+      return makeChoice(numChoice);
     }
 
     // If the player types 'back'
-    if (!strcmp(choice, "back\n")){
+    else if (!strcmp(choice, "back\n")){
       if (!strcmp(currentaddress, "0")) {
         printf("Can't go back. You're at the beginning!\n");
         return makeChoice(numChoice);
@@ -158,8 +155,8 @@ int makeChoice(int numChoice) {
 
     else {
       while (atoi(choice) < 1 || atoi(choice) > numChoice) {
-          printf("Input invalid. Please try again: ");
-          fgets(choice, sizeof(choice), stdin);
+          printf("Input invalid. Please try again.\n");
+          return makeChoice(numChoice);
       }
     }
 
