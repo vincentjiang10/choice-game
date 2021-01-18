@@ -11,6 +11,9 @@ void saveGame();
 // function to autosave the game
 void autoSave();
 
+// function to prompt asking the player if they have installed ImageMagick
+void promptImageMagick();
+
 // function to prompt & enable/disable autosave
 void promptAutosave();
 
