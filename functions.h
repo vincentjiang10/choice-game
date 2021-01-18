@@ -27,6 +27,7 @@ int makeChoice(int numChoice);
 struct Node makeNode(char str[], char * buffer, char * buffer2);
 
 // returns whether there is a picture file at address
+// also used to determine whether the address is a terminating one
 char reader0(char * address, char * buffer);
 
 // prints the text from story.txt at address
@@ -37,8 +38,6 @@ int reader2(char * address, char * buffer);
 
 // function that summarizes program features and utilities
 void help();
-
-// end game function (occurs when a node's address reaches an end case/scene)
 
 // helper function for display()
 char ** parse_args(char * line);

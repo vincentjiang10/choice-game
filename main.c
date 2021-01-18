@@ -138,7 +138,6 @@ void promptLoadfile(char *buffer, char *buffer2) {
   address[0] = '0'; // If savefile.txt only had an 'E', then this replaces that 'E' with a '0'.
                     // If savefile.txt had a save file, then this wouldn't change anything.
   struct Node node = makeNode(address, buffer, buffer2); // Load in the game.
-
 }
 
 // print and summarize features
@@ -150,6 +149,7 @@ void help() {
   printf("type \"Ctrl \\\" to save the game and quit \n");
   printf("type \"Ctrl C\" to quit the game (it doesn't for me -Vincent- for some reason)\n");
   printf("type \"replay\" to replay current scene\n");
+  printf("type \"restart\" to restart the game\n");
   printf("--------------------------------------------\n");
 }
 
@@ -209,9 +209,13 @@ int makeChoice(int numChoice) {
 }
 
 // returns whether there is a picture file at address
+// also determines whether address is a terminating case
 char reader0(char * address, char * buffer) {
-  char *x = strstr(buffer, address);
-  x+=strlen(address);
+  char add[256];
+  strcpy(add, address);
+  strcat(add, " ");
+  char *x = strstr(buffer, add);
+  x+=strlen(add);
   return x[0];
 }
 
@@ -290,16 +294,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       // parent process waiting for child process
       else {int childpid = waitpid(f, &status, 0);}
     }
-    int len = strlen(str);
-    // in the future, not using len but actually checking last char in string
-    // if particular char, say T, terminate and initiate end game function
-    if (len == 10) exit(0); // for now it's exit, but we can add a special function (endgame()) that ends the game
     char add[256], choice[10];
     strcpy(add, str);
-
-    // signals
-    signal(SIGQUIT, sighandler);
-    signal(SIGINT, sighandler);
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
@@ -307,18 +303,19 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
     else if (!strcmp(choice, "9"));
     else {strcat(add, choice);}
+    // terminating code portion
     if (!strcmp(choice, "0")) makeNode("0", buffer, buffer2);
     else {makeNode(add, buffer, buffer2);}
 }
 
 int main() {
     // loads in story.txt into a buffer
-    char buffer[5000];
+    char buffer[10000];
     int fd = open("story.txt", O_RDONLY);
     read(fd, buffer, sizeof(buffer));
     close(fd);
     // loads numChoice.txt into another buffer
-    char buffer2[256];
+    char buffer2[500];
     int fd2 = open("numChoice.txt", O_RDONLY);
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);
