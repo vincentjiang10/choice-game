@@ -58,7 +58,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### savefile.txt
 #### story.txt
 #### numChoice.txt
-#### picture_addresses.txt
+#### pics
 #### README.md
 #### DEVLOG
 ---
