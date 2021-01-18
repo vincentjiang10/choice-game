@@ -212,7 +212,7 @@ char ** parse_args(char * line) {
   return args;
 }
 
-// function for displaying images; use address as the title for image, i.e. display address.jpg
+// function for displaying images
 void display(char * address) {
   char line[256] = "display -resize 500x500 pics/";
   strcat(line, address); strcat(line, ".jpg");
@@ -224,8 +224,10 @@ void display(char * address) {
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     struct Node node;
-    // may need to include processes to display pictures
-    int f, status;
+    strcpy(node.address, str);
+    strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
+    if (autosave) autoSave();
+    reader(node.address, buffer);
     if ('y' == reader0(str, buffer2)) {
       int f, status; 
       f = fork();
@@ -234,10 +236,6 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       // parent process waiting for child process
       else {int childpid = waitpid(f, &status, 0);}
     }
-    strcpy(node.address, str);
-    strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
-    if (autosave) autoSave();
-    reader(node.address, buffer);
     int len = strlen(str);
     // in the future, not using len but actually checking last char in string
     // if particular char, say T, terminate and initiate end game function
