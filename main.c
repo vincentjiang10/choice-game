@@ -27,11 +27,42 @@ void autoSave() {
   close(fd);
 }
 
+// Function to ask the player if they have installed ImageMagick.
+void promptImageMagick() {
+  printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
+  printf("Linux/MacOS users usually have an inbuilt X server: able to run this program right away\n");
+  printf("\nNote: make sure to install ImageMagick before running this program\n");
+  printf("To install: $ sudo apt-get install imagemagick\n");
+  printf("Have you installed ImageMagick? (y/n)\n");
+  char promptResponse[10];
+  fgets(promptResponse, sizeof(promptResponse), stdin);
+
+  // If the player types anything other than 'y' or 'n'
+  if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
+    while (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
+      if (!strcmp(promptResponse, "help\n")) {
+        help();
+        printf("\nHave you installed ImageMagick? (y/n)\n");
+      }
+      else {
+        printf("Invalid input. Type 'y' or 'n'.\n");}
+        fgets(promptResponse, sizeof(promptResponse), stdin);
+    }
+  }
+
+  // If the player types 'n'
+  else if (promptResponse[0] == 'n') {
+    printf("\nPlease install ImageMagick to run this program\n");
+    printf("You can remove ImageMagick after using: $ sudo apt-get remove imageiagick\n");
+    exit(0);
+  }
+}
+
 // Function to prompt the player if they want to enable autosave. Enables autosave if desired.
 void promptAutosave() {
   char promptResponse[256];
   fgets(promptResponse, sizeof(promptResponse), stdin);
-  
+
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
     while (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -106,9 +137,10 @@ void promptLoadfile(char *buffer, char *buffer2) {
 // print and summarize features
 void help() {
   printf("------------------------------------------\n");
-  printf("type quit or exit to quit the game\n");
-  printf("type back to move back to last scene\n");
-  printf("type save or do Ctrl '\' to save the game at current scene\n");
+  printf("type \"quit\" or \"exit\" to quit the game\n");
+  printf("type \"back\" to move back to last scene\n");
+  printf("type \"save\" to save the game at current scene\n");
+  printf("type \'Ctrl \\\' to save the game and quit \n");
   printf("--------------------------------------------\n");
 }
 
@@ -117,7 +149,7 @@ int makeChoice(int numChoice) {
     printf("Input choice #: ");
     char choice [256];
     fgets(choice, sizeof(choice), stdin);
-    
+
     // If the player types 'restart'
     if (!strcmp(choice, "restart\n")) {
       printf("Are you sure you want to start from the beginning? (y/n)\n");
@@ -216,7 +248,7 @@ void display(char * address) {
   printf("the display command: %s", line);
   char **args = parse_args(line);
   execvp(args[0], args);
-} 
+}
 
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
@@ -226,9 +258,9 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     if (autosave) autoSave();
     reader(node.address, buffer);
     if ('y' == reader0(str, buffer2)) {
-      int f, status; 
+      int f, status;
       f = fork();
-      // child process displaying images 
+      // child process displaying images
       if (!f) display(str);
       // parent process waiting for child process
       else {int childpid = waitpid(f, &status, 0);}
@@ -245,7 +277,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
     sprintf(choice, "%d", makeChoice(numChoice));
-    if (!strcmp(choice, "10")) add[strlen(add)-1] = 0; 
+    if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
     else {strcat(add, choice);}
     if (!strcmp(choice, "0")) makeNode("0", buffer, buffer2);
     else {makeNode(add, buffer, buffer2);}
@@ -263,18 +295,9 @@ int main() {
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);
 
-    // at the start, check with user whether to load a save file
-    printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
-    printf("Linux/MacOS users usually have an inbuilt X server: able to run this program right away\n");
-    printf("\nNote: make sure to install ImageMagick before running this program\n");
-    printf("To install: $ sudo apt-get install imagemagick\n");
-    printf("Have you installed ImageMagick? (y/n)\n");
-    char ans[10]; fgets(ans, sizeof(ans), stdin);
-    if (ans[0] == 'n') {
-      printf("\nPlease install ImageMagick to run this program\n");
-      printf("You can remove ImageMagick after using: $ sudo apt-get remove imageiagick\n");
-      exit(0);
-    }
+    // Check if the player has installed ImageMagick:
+    promptImageMagick();
+
     printf("\nNOTE: type in \"help\" anytime expand program features and utilities\n");
     while (1) {
       // Autosave Prompt:
@@ -287,4 +310,4 @@ int main() {
     }
 
     return 0;
-}
+  }

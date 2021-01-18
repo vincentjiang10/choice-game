@@ -36,6 +36,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 - confirm whether program runs in Linux
 - story writing
 - picture implementation
+- Typing "quit" and "exit" doesn't quit the game. Possibly just ending the child process.
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
