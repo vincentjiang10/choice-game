@@ -3,4 +3,4 @@
 // Note: replace above * with 'y' or 'n' to indicate whether there is a picture file that is to be opened
 
 011n, 0113n:3
-0y, 01n, 011n, 012n, 0112n, 0113n :2
+0y, 01n, 011n, 012n, 0112n, 0113n, 0111n, 01132n, 01111n, 011321n, 011322n, 01133n, 0113221n, 01112n, 01121n, 012n:2

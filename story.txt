@@ -29,7 +29,7 @@ You smash a man's head in with your fists clenched like a hammer.
 The man was large and his body made a loud "thump" sound when it hit the floor.
 
 (1) Finish him off with the axe.
-(2) Loot the map.
+(2) Loot the map and escape.
 (3) Just leave the house.|
 
 0112 |-----------------------------------------------------
@@ -45,10 +45,62 @@ His eyes suddenly glimmer.
 He uppercuts you with the speed of a demon.
 You never wake up again...|
 
+0111 |-----------------------------------------------------
+You shove yourself in the closet.
+The man seems distracted.
+
+(1) Grab the map on the table and escape.
+(2) Escape without the map.|
+
+01132 ,01111 |-----------------------------------------------------
+You grab the map and sneakily escape.
+There's a mark on the map to the right of the house.
+
+(1) Go to the mark.
+(2) Continue on your way.|
+
+011321 |-----------------------------------------------------
+You grab a shovel that's conveniently propped against the house. Then you walk to the mark.
+There's a sign above what you asssume is the location. After digging for what seems to be an hour, you find a crest.
+You begin hearing loud footsteps coming towards you though.
+
+(1) Run!!
+(2) Confront the threat.|
+
+0113211 T|-----------------------------------------------------
+You run as fast as you can. You hear the man give chase but you manage to get away.
+It gets misty but the crest begins to glow blue. You're blinded by the light.
+When you open your eyes, you're in your bed.
+The crest is still clutched in your hands.|
+
+0113212 T|-----------------------------------------------------
+You confront the man and duke it out. You manage to defeat him with the shovel.
+After that, you continue on your way. 
+It gets misty but the crest begins to glow red. You're blinded by the light.
+When you open your eyes, you see pitch black. You can somehow see yourself though.
+You wander this dark dimension for the rest of eternity.|
+
+011322 ,01133 |-----------------------------------------------------
+10 minutes later, you hear rustling behind you. It's the man!
+He's carrying an axe.
+
+(1) RUN!!
+(2) Confront him.|
+
+0113221 ,01112 ,01121 ,012 |-----------------------------------------------------
+You run as fast as you can. You hear the man give chase but you manage to get away.
+However, you're surrounded by mist and you can't see.
+
+(1) Walk forward.
+(2) Turn around.|
+
+01132211 T,01132212 T|-----------------------------------------------------
+The mist seems to get thicker. No matter where you run it doesn't dissipate.
+Eventually you collapse from exhaustion...|
+
 02 |-----------------------------------------------------
 You decide to follow the directions to the exit.
 You catch something darting from tree to tree.
 
 (1) Choice 1.
-(2) Choice 2.
-(3) Choice 3.|
+(2) Choice 2.|
