@@ -2,5 +2,5 @@
 // Address1*, Address2*, Address3* ... :numChoice
 // Note: replace above * with 'y' or 'n' to indicate whether there is a picture file that is to be opened
 
-0y, 02n :3
-01n, 03n, 011n, 012n, 021n, 022n, 023n, 0231n, 0232n, 031n, 032n :2
+011n, 0113n:3
+0y, 01n, 011n, 012n, 0112n, 0113n :2

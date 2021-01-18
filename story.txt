@@ -2,57 +2,53 @@
 // Address1 , Address2 , Address3 ... |text to be printed|
 // Note: if end case, put ' T' after the number to indicate termination
 
-0 |
+0 |-----------------------------------------------------
 You wake up in the woods. 
 You feel a little dizzy but begin wandering around until you see a sign for the directions to the exit.
 
 (1) Go the opposite direction.
-(2) Follow directions to the exit.
-|
+(2) Follow directions to the exit.|
 
-01 |
-You kill yourself with the axe.
+01 |-----------------------------------------------------
+You go the opposite way because you're a rebel.
+You end up encountering a house.
 
-(1) Choice 1.
-(2) Choice 2.|
+(1) Go in.
+(2) Keep Walking.|
 
-02 |
-You fall on the axe.
+011 |-----------------------------------------------------
+You look around. There's a recently lit fire and a map on a table.
+Then you hear the door slowly being open.
+
+(1) Hide in the closet.
+(2) Grab the axe across from the room.
+(3) Ambush the sucker.|
+
+0113 |-----------------------------------------------------
+You smash a man's head in with your fists clenched like a hammer.
+The man was large and his body made a loud "thump" sound when it hit the floor.
+
+(1) Finish him off with the axe.
+(2) Loot the map.
+(3) Just leave the house.|
+
+0112 |-----------------------------------------------------
+You rush over and grab the axe.
+The large man enters the room. He's carrying an axe. "Thief!," he exclaims as he rushes over for a fight.
+You manage to get a lucky hit on him. He's bleeding out.
+
+(1) Escape.
+(2) Finish him off with the axe.|
+
+01131 T,01122 T|-----------------------------------------------------
+His eyes suddenly glimmer.
+He uppercuts you with the speed of a demon.
+You never wake up again...|
+
+02 |-----------------------------------------------------
+You decide to follow the directions to the exit.
+You catch something darting from tree to tree.
 
 (1) Choice 1.
 (2) Choice 2.
 (3) Choice 3.|
-
-03 |
-You bandage yourself.
-
-(1) Choice 1.
-(2) Choice 2.|
-
-011 |Address011|
-0111 |Address0111|
-0112 |Address0112|
-
-012 |Address012|
-0121 |Address0121|
-0122 |Address0122|
-
-021 |Address021|
-0211 |Address0211|
-0212 |Address0212|
-
-022 |Address022|
-0221 |Address0221|
-0222 |Address0222|
-
-023 |Address023|
-0231 |Address0231|
-0232 |Address0232|
-
-031 |Address031|
-0311 |Address0311|
-0312 |Address0312|
-
-032 |Address032|
-0321 |Address0321|
-0322 |Address0322|
