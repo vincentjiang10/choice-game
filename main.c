@@ -31,11 +31,15 @@ void autoSave() {
 void promptAutosave() {
   char promptResponse[256];
   fgets(promptResponse, sizeof(promptResponse), stdin);
-
+  
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
     while (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
-      printf("Invalid input. Type 'y' or 'n'.\n");
+      if (!strcmp(promptResponse, "help\n")) {
+        help();
+        printf("\nWould you like to enable autosave? (y/n)\n");
+      }
+      else {printf("Invalid input. Type 'y' or 'n'.\n");}
       fgets(promptResponse, sizeof(promptResponse), stdin);
     }
   }
@@ -60,7 +64,11 @@ void promptLoadfile(char *buffer, char *buffer2) {
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
     while (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
-      printf("Invalid input. Type 'y' or 'n'.\n");
+      if (!strcmp(promptResponse, "help\n")) {
+        help();
+        printf("\nWould you like to load in a saved file? (y/n)\n");
+      }
+      else {printf("Invalid input. Type 'y' or 'n'.\n");}
       fgets(promptResponse, sizeof(promptResponse), stdin);
     }
   }
@@ -69,7 +77,7 @@ void promptLoadfile(char *buffer, char *buffer2) {
 
   // If the player types 'y', attempt to load the savefile.
   if (promptResponse[0]=='y') {
-    printf("Looking for save file...\n");
+    printf("\nLooking for save file...\n");
     int fd = open("savefile.txt", O_RDONLY);
     read(fd, address, sizeof(address));
     close(fd);
@@ -95,8 +103,9 @@ void promptLoadfile(char *buffer, char *buffer2) {
 
 }
 
+// print and summarize features
 void help() {
-  // print and summarize features
+  printf("testing; incomplete\n");
 }
 
 // function which makes the choice (takes in stdin int)
@@ -104,6 +113,20 @@ int makeChoice(int numChoice) {
     printf("Input choice #: ");
     char choice [256];
     fgets(choice, sizeof(choice), stdin);
+    
+    // If the player types 'restart'
+    if (!strcmp(choice, "restart\n")) {
+      printf("Are you sure you want to start from the beginning? (y/n)\n");
+      fgets(choice, sizeof(choice), stdin);
+      if (choice[0] == 'y') return 0;
+      else {return makeChoice(numChoice);}
+    }
+
+    // If the player types 'help'
+    if (!strcmp(choice, "help\n")) help();
+
+    // If the player types 'quit'
+    if (!strcmp(choice, "quit\n")) exit(0);
 
     // If the player types 'save'
     if (!strcmp(choice, "save\n")) {
@@ -117,15 +140,10 @@ int makeChoice(int numChoice) {
     if (!strcmp(choice, "back\n")){
       if (!strcmp(currentaddress, "0")) {
         printf("Can't go back. You're at the beginning!\n");
+        return makeChoice(numChoice);
       }
       else return atoi("10");
     }
-
-    // If the player types 'quit'
-    if (!strcmp(choice, "quit\n")) exit(0);
-
-    // If the player types 'help'
-    // help function
 
     else {
       while (atoi(choice) < 1 || atoi(choice) > numChoice) {
@@ -133,6 +151,7 @@ int makeChoice(int numChoice) {
           fgets(choice, sizeof(choice), stdin);
       }
     }
+
     return atoi(choice);
 }
 
@@ -197,12 +216,10 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
     sprintf(choice, "%d", makeChoice(numChoice));
-    if (!strcmp(choice, "10")){
-      add[strlen(add)-1] = 0;
-    }
-    else{
-    strcat(add, choice);}
-    makeNode(add, buffer, buffer2);
+    if (!strcmp(choice, "10")) add[strlen(add)-1] = 0; 
+    else {strcat(add, choice);}
+    if (!strcmp(choice, "0")) makeNode("0", buffer, buffer2);
+    else {makeNode(add, buffer, buffer2);}
 }
 
 int main() {
@@ -218,9 +235,10 @@ int main() {
     close(fd2);
 
     // at the start, check with user whether to load a save file
+    printf("\nNOTE: type in \"help\" anytime expand program features and utilities\n");
     while (1) {
       // Autosave Prompt:
-      printf("Would you like to enable autosave? (y/n)\n");
+      printf("\nWould you like to enable autosave? (y/n)\n");
       promptAutosave();
 
       // Loadfile Prompt: (If they don't want to load, the game starts at the beginning.)

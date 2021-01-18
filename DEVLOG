@@ -70,3 +70,8 @@ Contributed by: Vincent Jiang
 Contributed by: Cullen Ye
 - Used metadata to find when the game was last saved; displays it when loading save file.
 - Because of the 'back' function, I removed the restriction on saving at the beginning.
+
+1/17/2021 8 PM
+Contributed by: Vincent Jiang
+- created help function to guide user throughout program
+- created display function to test picture display

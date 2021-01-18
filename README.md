@@ -29,6 +29,12 @@ The player can pull up the menu, save the game, exit, and perform other features
 - Awards
 
 ### Current Issues To Fix:
+- update instruction here 
+- update help function with additional add-ons and features
+- update apt-get instructions
+- confirm whether program runs in Linux
+- story writing
+- picture implementation
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
