@@ -30,13 +30,14 @@ The player can pull up the menu, save the game, exit, and perform other features
 - Awards
 
 ### Current Issues To Fix:
-- update instruction here 
+- update instructions
 - update help function with additional add-ons and features
 - update apt-get instructions
-- confirm whether program runs in Linux
 - story writing
 - picture implementation
-- Typing "quit" and "exit" doesn't quit the game. Possibly just ending the child process.
+- Typing "quit" and "exit" doesn't quit the game. Possibly just ending the child process. (Vincent - it does for me tho?)
+- Ctrl \ is inconsistent
+- possible whitespace compare, i.e. "compare  " would be removed to "compare" so that user can put whitespace and still get input: "compare"
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen

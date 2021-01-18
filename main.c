@@ -35,6 +35,7 @@ void promptImageMagick() {
   printf("To install: $ sudo apt-get install imagemagick\n");
   printf("Have you installed ImageMagick? (y/n)\n");
   char promptResponse[10];
+  sigs();
   fgets(promptResponse, sizeof(promptResponse), stdin);
 
   // If the player types anything other than 'y' or 'n'
@@ -45,8 +46,10 @@ void promptImageMagick() {
         printf("\nHave you installed ImageMagick? (y/n)\n");
       }
       else {
-        printf("Invalid input. Type 'y' or 'n'.\n");}
+        printf("Invalid input. Type 'y' or 'n'.\n");
+        sigs();
         fgets(promptResponse, sizeof(promptResponse), stdin);
+      }
     }
   }
 
@@ -61,6 +64,7 @@ void promptImageMagick() {
 // Function to prompt the player if they want to enable autosave. Enables autosave if desired.
 void promptAutosave() {
   char promptResponse[256];
+  sigs();
   fgets(promptResponse, sizeof(promptResponse), stdin);
 
   // If the player types anything other than 'y' or 'n'
@@ -71,6 +75,7 @@ void promptAutosave() {
         printf("\nWould you like to enable autosave? (y/n)\n");
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
+      sigs();
       fgets(promptResponse, sizeof(promptResponse), stdin);
     }
   }
@@ -90,6 +95,7 @@ void promptAutosave() {
 // Function to prompt the player if they want to load a savefile.
 void promptLoadfile(char *buffer, char *buffer2) {
   char promptResponse[256];
+  sigs();
   fgets(promptResponse, sizeof(promptResponse), stdin);
 
   // If the player types anything other than 'y' or 'n'
@@ -100,6 +106,7 @@ void promptLoadfile(char *buffer, char *buffer2) {
         printf("\nWould you like to load in a saved file? (y/n)\n");
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
+      sigs();
       fgets(promptResponse, sizeof(promptResponse), stdin);
     }
   }
@@ -140,7 +147,9 @@ void help() {
   printf("type \"quit\" or \"exit\" to quit the game\n");
   printf("type \"back\" to move back to last scene\n");
   printf("type \"save\" to save the game at current scene\n");
-  printf("type \'Ctrl \\\' to save the game and quit \n");
+  printf("type \"Ctrl \\\" to save the game and quit \n");
+  printf("type \"Ctrl C\" to quit the game (it doesn't for me -Vincent- for some reason)\n");
+  printf("type \"replay\" to replay current scene\n");
   printf("--------------------------------------------\n");
 }
 
@@ -148,11 +157,13 @@ void help() {
 int makeChoice(int numChoice) {
     printf("Input choice #: ");
     char choice [256];
+    sigs();
     fgets(choice, sizeof(choice), stdin);
 
     // If the player types 'restart'
     if (!strcmp(choice, "restart\n")) {
       printf("Are you sure you want to start from the beginning? (y/n)\n");
+      sigs();
       fgets(choice, sizeof(choice), stdin);
       if (choice[0] == 'y') return 0;
       else {return makeChoice(numChoice);}
@@ -184,6 +195,8 @@ int makeChoice(int numChoice) {
       }
       else return atoi("10");
     }
+
+    else if (!strcmp(choice, "replay\n")) return atoi("9");
 
     else {
       while (atoi(choice) < 1 || atoi(choice) > numChoice) {
@@ -226,7 +239,19 @@ static void sighandler(int signo){
     if (signo == SIGQUIT) {
       printf("\n");
       saveGame();  // Ctrl + "\"
+      printf("Input choice #: ");
     }
+    if (signo == SIGINT || signo == SIGTERM || signo == SIGTSTP) {
+      printf("\nHope you had fun!\n");
+      exit(0);
+    }
+}
+
+void sigs() {
+  signal(SIGQUIT, sighandler);
+  signal(SIGINT, sighandler);
+  signal(SIGTERM, sighandler);
+  signal(SIGTSTP, sighandler);
 }
 
 char ** parse_args(char * line) {
@@ -272,12 +297,15 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     char add[256], choice[10];
     strcpy(add, str);
 
+    // signals
     signal(SIGQUIT, sighandler);
+    signal(SIGINT, sighandler);
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
     sprintf(choice, "%d", makeChoice(numChoice));
     if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
+    else if (!strcmp(choice, "9"));
     else {strcat(add, choice);}
     if (!strcmp(choice, "0")) makeNode("0", buffer, buffer2);
     else {makeNode(add, buffer, buffer2);}

@@ -38,12 +38,18 @@ int reader2(char * address, char * buffer);
 // function that summarizes program features and utilities
 void help();
 
-// end game function
+// end game function (occurs when a node's address reaches an end case/scene)
 
 // helper function for display()
 char ** parse_args(char * line);
 
 // displays image at address
 void display(char * address);
+
+// sighandler
+static void sighandler(int signo);
+
+// helper function that calls sighandler
+void sigs();
 
 #endif
