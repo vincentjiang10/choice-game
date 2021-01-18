@@ -268,7 +268,7 @@ int main() {
 
     // at the start, check with user whether to load a save file
     printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
-    printf("Linux users usually have an inbuilt X server: able to run this program right away\n");
+    printf("Linux/MacOS users usually have an inbuilt X server: able to run this program right away\n");
     printf("\nNote: make sure to install ImageMagick before running this program\n");
     printf("To install: $ sudo apt-get install imagemagick\n");
     printf("Have you installed ImageMagick? (y/n)\n");
