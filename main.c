@@ -28,6 +28,7 @@ void autoSave() {
   close(fd);
 }
 
+// Function to ask the player if they have installed ImageMagick.
 void promptImageMagick() {
   printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
   printf("Linux/MacOS users usually have an inbuilt X server: able to run this program right away\n");
