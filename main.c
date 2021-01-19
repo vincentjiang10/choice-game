@@ -299,7 +299,6 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // terminating case
     char letter = reader0(str, buffer);
-    printf("letter: %c\n", letter);
     if (letter == 'L' || letter == 'W') {
       if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :(\n");
       if (letter == 'L') printf("\nOOF!looks like you lose! :(\n");
