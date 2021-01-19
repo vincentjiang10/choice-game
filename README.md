@@ -76,6 +76,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### unistd.h
 #### sys/wait.h
 #### ImageMagick
+#### time.h
 
 ### Apt-Get + Prerequisites
 // to be updated\

@@ -300,7 +300,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // terminating case
     char letter = reader0(str, buffer);
     if (letter == 'L' || letter == 'W') {
-      if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :(\n");
+      if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :)\n");
       if (letter == 'L') printf("\nOOF! looks like you lose! :(\n");
       printf("Would you like to restart the game? (y/n)\n");
       sigs();
@@ -318,7 +318,19 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
+    // quick time event. If nothing is chosen, a hidden choice 4 is selected. Thus quick time scenarios must have 4 choices
+    if (letter == 'Q'){
+      time_t b = time(NULL);
+      sprintf(choice, "%d", makeChoice(numChoice));
+      time_t e = time(NULL);
+      if ((e - b) > 15.0){
+        sprintf(choice, "%d", 4);
+      }
+    }
+    else{
     sprintf(choice, "%d", makeChoice(numChoice));
+    }
+
     if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
     else if (!strcmp(choice, "9"));
     else {strcat(add, choice);}

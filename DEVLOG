@@ -96,3 +96,9 @@ Contributed by: Jacky Chen
 - began converting story into addresses
 - ran into sticky situation regarding converging addresses
 - need way to merge address branches
+
+1/19/2021 1 AM
+Contributed by: Jacky Chen
+- added quick-time scenarios
+- instead of a countdown, it checks if the time it takes to choose exceeds 15 seconds
+- modified makeChoice to check if it's quicktime or not
