@@ -107,3 +107,5 @@ Contributed by: Jacky Chen
 Contributed by: Cullen Ye
 - finished the convergence function. 
 - should work if we follow the same format for story.txt
+- added a function to prompt restart
+- accounted for if the player types something other than 'y' or 'n'
