@@ -101,7 +101,7 @@ Contributed by: Jacky Chen
 Contributed by: Jacky Chen
 - added quick-time scenarios
 - instead of a countdown, it checks if the time it takes to choose exceeds 15 seconds
-- modified makeChoice to check if it's quicktime or not
+- quick-time events will have a hidden 4th choice that is automatically chosen
 
 1/19/2021 1 AM
 Contributed by: Cullen Ye
