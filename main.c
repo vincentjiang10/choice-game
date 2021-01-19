@@ -140,6 +140,38 @@ void promptLoadfile(char *buffer, char *buffer2) {
   struct Node node = makeNode(address, buffer, buffer2); // Load in the game.
 }
 
+void promptRestart(char * buffer, char * buffer2) {
+
+  printf("Would you like to restart the game? (y/n)\n");
+  char promptResponse[10];
+  sigs();
+  fgets(promptResponse, sizeof(promptResponse), stdin);
+
+  // If the player types anything other than 'y' or 'n'
+  if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
+    while (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
+      if (!strcmp(promptResponse, "help\n")) {
+        help();
+        printf("\nWould you like to restart the game? (y/n)\n");
+      }
+      else {
+        printf("Invalid input. Type 'y' or 'n'.\n");
+        sigs();
+        fgets(promptResponse, sizeof(promptResponse), stdin);
+      }
+    }
+  }
+
+  else if (promptResponse[0] == 'y') {
+    printf("\n-----------------------\n");
+    makeNode("0", buffer, buffer2);
+  }
+
+  // If the player types 'n'
+  else exit(0);
+
+}
+
 // print and summarize features
 void help() {
   printf("------------------------------------------\n");
@@ -341,14 +373,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     if (letter == 'L' || letter == 'W') {
       if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :)\n");
       if (letter == 'L') printf("\nOOF! looks like you lose! :(\n");
-      printf("Would you like to restart the game? (y/n)\n");
-      sigs();
-      fgets(choice, sizeof(choice), stdin);
-      if (choice[0] == 'y') {
-        printf("\n-----------------------\n");
-        makeNode("0", buffer, buffer2);
-      }
-      else exit(0);
+      promptRestart(buffer, buffer2);
     }
 
     // non-terminating case
