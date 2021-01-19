@@ -301,7 +301,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     char letter = reader0(str, buffer);
     if (letter == 'L' || letter == 'W') {
       if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :(\n");
-      if (letter == 'L') printf("\nOOF!looks like you lose! :(\n");
+      if (letter == 'L') printf("\nOOF! looks like you lose! :(\n");
       printf("Would you like to restart the game? (y/n)\n");
       sigs();
       fgets(choice, sizeof(choice), stdin);
