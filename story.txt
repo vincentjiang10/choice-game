@@ -61,7 +61,7 @@ There's a mark on the map to the right of the house.
 
 011321 |-----------------------------------------------------
 You grab a shovel that's conveniently propped against the house. Then you walk to the mark.
-There's a sign above what you asssume is the location. After digging for what seems to be an hour, you find a crest.
+There's a sign above what you assume is the location. After digging for what seems to be an hour, you find a crest.
 You begin hearing loud footsteps coming towards you though.
 
 (1) Run!!
