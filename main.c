@@ -279,11 +279,48 @@ void display(char * address) {
   execvp(args[0], args);
 }
 
+int helper(char * str) {
+  char *str2 = strchr(str, '|');
+  int i = (int)(str2- str);
+  for (i; str[i]!=','; i--);
+  return i+1;
+}
+
+char * checkConvergence(char * buffer) {
+  char *str = strstr(buffer, currentaddress);
+  int i = strlen(currentaddress)+1;
+
+  if (str[i]=='W'||str[i]=='L') i++;
+
+  // If there's no comma, then there's no convergence needed.
+  if (str[i]!=',') {
+    return "noconvergence";
+  }
+
+  // Else, converge addresses.
+  char *newaddress = malloc(sizeof(char)*256);
+  i = helper(str);
+  int j = 0;
+  for (i; str[i]!=' '; i++) {
+    newaddress[j] = str[i];
+    j++;
+  }
+  return newaddress;
+}
+
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     struct Node node;
     strcpy(node.address, str);
+
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
+
+    // Checks for convergence:
+    char *potentialnewaddress = checkConvergence(buffer);
+    if (strcmp(checkConvergence(buffer), "noconvergence")) { // If there is convergence...
+      strcpy(currentaddress, potentialnewaddress);
+    }
+
     if (autosave) autoSave();
     reader(node.address, buffer);
     if ('y' == reader0(str, buffer2)) {
