@@ -23,6 +23,12 @@ void promptLoadfile(char *buffer, char *buffer2);
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice);
 
+// helper function for checkConvergence();
+int helper(char * str);
+
+// checks for convergence and merges addresses accordingly
+char * checkConvergence();
+
 // makes node and connects to next node recursively
 struct Node makeNode(char str[], char * buffer, char * buffer2);
 
