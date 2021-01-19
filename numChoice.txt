@@ -1,7 +1,20 @@
 // format
-// Address1*, Address2*, Address3* ... :numChoice
+// Address1 *, Address2 *, Address3 * ... :numChoice
 // Note: replace above * with 'y' or 'n' to indicate whether there is a picture file that is to be opened
 
-0 y, 02 n :3
-01 n, 03 n :2
-011 n, 012 n, 021 n, 022 n, 023 n, 0231 n, 0232 n, 031 n, 032 n :2
+0 y :2
+01 n, 02 n :2
+011 n :3
+0111 n :2
+0113 n :3
+0112 n :2 
+01131 n :terminating(L)
+01122 n :terminating(L)
+01132 n, 01111 n :2
+011321 n :2
+0113211 :terminating(W)
+0113212 :terminating(L)
+011322 n, 01133 n :2
+0113221 n, 01112 n, 01121 n, 012 n :2 
+01132211 n, 01132212 n :terminating(L)
+02 n :2

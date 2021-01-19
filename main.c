@@ -294,7 +294,27 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       // parent process waiting for child process
       else {int childpid = waitpid(f, &status, 0);}
     }
-    char add[256], choice[10];
+
+    char choice[10];
+
+    // terminating case
+    char letter = reader0(str, buffer);
+    printf("letter: %c\n", letter);
+    if (letter == 'L' || letter == 'W') {
+      if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :(\n");
+      if (letter == 'L') printf("\nOOF!looks like you lose! :(\n");
+      printf("Would you like to restart the game? (y/n)\n");
+      sigs();
+      fgets(choice, sizeof(choice), stdin);
+      if (choice[0] == 'y') {
+        printf("\n-----------------------\n");
+        makeNode("0", buffer, buffer2);
+      }
+      else exit(0);
+    }
+
+    // non-terminating case
+    char add[256];
     strcpy(add, str);
 
     // reads from buffer2 the number of choices with address
@@ -303,7 +323,6 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
     else if (!strcmp(choice, "9"));
     else {strcat(add, choice);}
-    // terminating code portion
     if (!strcmp(choice, "0")) makeNode("0", buffer, buffer2);
     else {makeNode(add, buffer, buffer2);}
 }

@@ -88,6 +88,8 @@ Contributed by: Vincent Jiang
 - added replay function; type help during program to see feature details
 - added other signals
 - added sigs() function
+- added restart function; type help during program to see feature details
+- added terminating code to stop recursive makeNode() calls
 
 1/18/2021 5 PM
 Contributed by: Jacky Chen
