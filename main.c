@@ -276,7 +276,7 @@ int reader2(char * address, char * buffer) {
 static void sighandler(int signo){
     if (signo == SIGQUIT) {
       printf("\n");
-      saveGame();
+      saveGame();  // Ctrl + "\"
       printf("Input choice #: \n");
     }
     if (signo == SIGINT || signo == SIGTERM || signo == SIGTSTP) {
