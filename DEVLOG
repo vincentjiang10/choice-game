@@ -96,3 +96,8 @@ Contributed by: Jacky Chen
 - began converting story into addresses
 - ran into sticky situation regarding converging addresses
 - need way to merge address branches
+
+1/19/2021 1 AM
+Contributed by: Cullen Ye
+- finished the convergence function. 
+   - should work if we follow the same format for story.txt
