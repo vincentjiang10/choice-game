@@ -29,9 +29,9 @@ void autoSave() {
 
 // Function to ask the player if they have installed ImageMagick.
 void promptImageMagick() {
-  printf("\nNote: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
+  printf("\nNOTE: WSL users may have to run this program through ssh (i.e. via PuTTY and enabling X11 forwarding) and install an X server (i.e. Xming)\n");
   printf("Linux/MacOS users usually have an inbuilt X server: able to run this program right away\n");
-  printf("\nNote: make sure to install ImageMagick before running this program\n");
+  printf("\nNOTE: make sure to install ImageMagick before running this program\n");
   printf("To install: $ sudo apt-get install imagemagick\n");
   printf("Have you installed ImageMagick? (y/n)\n");
   char promptResponse[10];
@@ -134,6 +134,8 @@ void promptLoadfile(char *buffer, char *buffer2) {
     }
   }
 
+  printf("\nStarting game...\n");
+  
   // If the player types 'n', then the program automatically comes here.
   address[0] = '0'; // If savefile.txt only had an 'E', then this replaces that 'E' with a '0'.
                     // If savefile.txt had a save file, then this wouldn't change anything.
@@ -178,8 +180,8 @@ void help() {
   printf("type \"quit\" or \"exit\" to quit the game\n");
   printf("type \"back\" to move back to last scene\n");
   printf("type \"save\" to save the game at current scene\n");
-  printf("type \"Ctrl \\\" to save the game and quit \n");
-  printf("type \"Ctrl C\" to quit the game (it doesn't for me -Vincent- for some reason)\n");
+  printf("type \"Ctrl \\\" to save the game and quit (it doesn't quit for me -Vincent- for some reason)\n");
+  printf("type \"Ctrl C\" to quit the game\n");
   printf("type \"replay\" to replay current scene\n");
   printf("type \"restart\" to restart the game\n");
   printf("--------------------------------------------\n");
@@ -274,8 +276,8 @@ int reader2(char * address, char * buffer) {
 static void sighandler(int signo){
     if (signo == SIGQUIT) {
       printf("\n");
-      saveGame();  // Ctrl + "\"
-      printf("Input choice #: ");
+      saveGame();
+      printf("Input choice #: \n");
     }
     if (signo == SIGINT || signo == SIGTERM || signo == SIGTSTP) {
       printf("\nHope you had fun!\n");
@@ -361,9 +363,13 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       int f, status;
       f = fork();
       // child process displaying images
-      if (!f) display(str);
+      if (!f) {display(str);}
       // parent process waiting for child process
-      else {int childpid = waitpid(f, &status, 0);}
+      else {
+        sleep(10);
+        kill(f, SIGKILL);
+        int childpid = waitpid(f, &status, 0);
+      }
     }
 
     char choice[10];
@@ -414,10 +420,13 @@ int main() {
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);
 
-    // Check if the player has installed ImageMagick:
+    // Check if the player has installed:
     promptImageMagick();
 
-    printf("\nNOTE: type in \"help\" anytime expand program features and utilities\n");
+    printf("\nNOTE: throughout the program, pictures will be displayed for immersion\n"); 
+    printf("Please exit the picture manually to continue, else the picture will exit automatically in a few seconds\n");
+
+    printf("NOTE: type in \"help\" anytime expand program features and utilities\n");
     while (1) {
       // Autosave Prompt:
       printf("\nWould you like to enable autosave? (y/n)\n");
@@ -426,6 +435,7 @@ int main() {
       // Loadfile Prompt: (If they don't want to load, the game starts at the beginning.)
       printf("Would you like to load in a saved file? (y/n)\n");
       promptLoadfile(buffer, buffer2);
+      
     }
 
     return 0;

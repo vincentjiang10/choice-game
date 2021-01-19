@@ -109,3 +109,8 @@ Contributed by: Cullen Ye
 - should work if we follow the same format for story.txt
 - added a function to prompt restart
 - accounted for if the player types something other than 'y' or 'n'
+
+1/19/2021 1 PM
+Contributed by: Vincent Jiang
+- added auto-termination of child process (when displaying pictures)
+- added a few messages
