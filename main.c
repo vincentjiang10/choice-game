@@ -279,6 +279,7 @@ void display(char * address) {
   execvp(args[0], args);
 }
 
+// helper function for checkConvergence() - looks for the rightmost address of a converging Node
 int helper(char * str) {
   char *str2 = strchr(str, '|');
   int i = (int)(str2- str);
@@ -286,6 +287,7 @@ int helper(char * str) {
   return i+1;
 }
 
+// function to check for convergence and return a new address if applicable
 char * checkConvergence(char * buffer) {
   char *str = strstr(buffer, currentaddress);
   int i = strlen(currentaddress)+1;
