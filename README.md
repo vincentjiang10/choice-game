@@ -23,11 +23,11 @@ The player can pull up the menu, save the game, exit, and perform other features
 
 ### Possible Additions (if we have enough time):
 - Add quick-time choices. (Use the wait() function)
-- Include a pause option. (Signals)
 - Custom-drawn pictures.
 - Items
 - Mini-games
 - Awards
+- Another story (in main.c ask user which story to choose; change buffer and buffer2 accordingly)
 
 ### Current Issues To Fix:
 - update instructions
