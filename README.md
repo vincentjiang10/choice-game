@@ -36,6 +36,10 @@ The player can pull up the menu, save the game, exit, and perform other features
 
 **Basic Structure:** Jacky, Vincent, Cullen
 
+**README.md:** Jacky, Vincent, Cullen
+
+**Bug Catching:** Jacky, Vincent, Cullen
+
 **Implementing Signals and Miscellaneous Functions:** Jacky, Vincent
 
 **Implementing Picture Library:** Vincent
