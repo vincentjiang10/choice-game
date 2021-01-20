@@ -3,7 +3,7 @@
 // Note: if losing end case, put ' L' after the number to indicate termination, else put ' W' if winning end case
 
 0 |-----------------------------------------------------
-You wake up in the woods. 
+You wake up in the woods.
 You feel a little dizzy but begin wandering around until you see a sign for the directions to the exit.
 
 (1) Go the opposite direction.
@@ -18,8 +18,13 @@ You end up encountering a house.
 
 011 Q|-----------------------------------------------------
 You look around. There's a recently lit fire and a map on a table.
+<<<<<<< HEAD
 Then you hear the door slowly being open. 
 Quick! You only have 10 seconds.
+=======
+Then you hear the door slowly being open.
+Quick! You only have 15 seconds.
+>>>>>>> 65f6d6e3876010b579254c91ba49d2c227795957
 
 (1) Hide in the closet.
 (2) Grab the axe across from the room.
@@ -76,7 +81,7 @@ The crest is still clutched in your hands.|
 
 0113212 L|-----------------------------------------------------
 You confront the man and duke it out. You manage to defeat him with the shovel.
-After that, you continue on your way. 
+After that, you continue on your way.
 It gets misty but the crest begins to glow red. You're blinded by the light.
 When you open your eyes, you see pitch black. You can somehow see yourself though.
 You wander this dark dimension for the rest of eternity.|
@@ -99,7 +104,7 @@ Quick, think, you only have 10 seconds!
 
 
 0121 ,011322112 ,01112 ,01121 ,011322222 ,011322212 ,0113221|-----------------------------------------------------
-You run as fast as you can. 
+You run as fast as you can.
 You hear the man give chase but you manage to get away.
 However, you're surrounded by mist and you can't see.
 
@@ -148,7 +153,7 @@ He asks, "Why were you in my house?"
 (1) I was just curious.
 (2) Sorry, I'm lost.|
 
-01132241 , 01141 , 011322121 ,01132221 |-----------------------------------------------------
+01132241 ,01141 ,011322121 ,01132221 |-----------------------------------------------------
 "Ugh whatever. You didn't steal anything so I'll let you go.
 But if I see you again in my house, you're dead."
 He begins walking back to his house.
@@ -156,7 +161,7 @@ He begins walking back to his house.
 (1) Tell him you're lost before he leaves.
 (2) Continue on your path.|
 
-01132242 , 01142 , 011322122 ,01132222 |-----------------------------------------------------
+01132242 ,01142 ,011322122 ,01132222 |-----------------------------------------------------
 "I thought so. The area ahead is cursed."
 I'll lead you out.
 
