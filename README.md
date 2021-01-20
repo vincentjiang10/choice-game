@@ -69,11 +69,9 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### time.h
 
 ### Apt-Get + Prerequisites
-// to be updated\
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming, vcXsrv)\
-Run the following code:\
+Run the following code to install ImageMagick:\
 $ sudo apt-get install imagemagick\
-// Try and test out 
 
 ### Instructions 
 // to be updated\
