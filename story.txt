@@ -16,9 +16,10 @@ You end up encountering a house.
 (1) Go in.
 (2) Keep Walking.|
 
-011 |-----------------------------------------------------
+011 Q|-----------------------------------------------------
 You look around. There's a recently lit fire and a map on a table.
-Then you hear the door slowly being open.
+Then you hear the door slowly being open. 
+Quick! You only have 15 seconds.
 
 (1) Hide in the closet.
 (2) Grab the axe across from the room.
@@ -52,7 +53,7 @@ The man seems distracted.
 (1) Grab the map on the table and escape.
 (2) Escape without the map.|
 
-01132 ,01111 |-----------------------------------------------------
+01111 ,01132 |-----------------------------------------------------
 You grab the map and sneakily escape.
 There's a mark on the map to the right of the house.
 
@@ -80,15 +81,17 @@ It gets misty but the crest begins to glow red. You're blinded by the light.
 When you open your eyes, you see pitch black. You can somehow see yourself though.
 You wander this dark dimension for the rest of eternity.|
 
-011322 ,01133 |-----------------------------------------------------
+01133 Q,011322 Q|-----------------------------------------------------
 10 minutes later, you hear rustling behind you. It's the man!
 He's carrying an axe.
+Quick! You only have 15 seconds.
 
 (1) RUN!!
 (2) Confront him.|
 
-0113221 ,01112 ,01121 ,012 |-----------------------------------------------------
-You run as fast as you can. You hear the man give chase but you manage to get away.
+012 ,011322112 ,01112 ,01121 ,011322222 ,011322212 ,0113221 |-----------------------------------------------------
+You run as fast as you can. 
+You hear the man give chase but you manage to get away.
 However, you're surrounded by mist and you can't see.
 
 (1) Walk forward.
@@ -97,6 +100,64 @@ However, you're surrounded by mist and you can't see.
 01132211 L,01132212 L|-----------------------------------------------------
 The mist seems to get thicker. No matter where you run it doesn't dissipate.
 Eventually you collapse from exhaustion...|
+
+0113224 ,0114 |-----------------------------------------------------
+You take too long and the man confronts you!
+He asks, "Why were you in my house?"
+
+(1) Uhh... sightseeing?
+(2) Sorry, I'm lost.|
+
+0113221 |-----------------------------------------------------
+You go in for a punch barrage.
+However, the man catches your fists! His grip is tight.
+
+(1) Headbutt him.
+(2) Apologize and negotiate for your life.|
+
+01132211 |-----------------------------------------------------
+Caught by surprise, he lets you go.
+
+(1) ATTACK!!
+(2) RUN!!|
+
+011322111 L|-----------------------------------------------------
+As you go in for another rush down attack, he slashes you.
+Everything fades to black. You die.|
+
+01132212 |-----------------------------------------------------
+He scoffs and asks you a question.
+"Why were you in my house?"
+
+(1) I was just curious.
+(2) Sorry, I'm lost.|
+
+0113222 |-----------------------------------------------------
+You walk up to the man.
+He asks, "Why were you in my house?"
+
+(1) I was just curious.
+(2) Sorry, I'm lost.|
+
+01132241 , 01141 , 011322121 ,01132221 |-----------------------------------------------------
+"Ugh whatever. You didn't steal anything so I'll let you go.
+But if I see you again in my house, you're dead."
+He begins walking back to his house.
+
+(1) Tell him you're lost before he leaves.
+(2) Continue on your path.|
+
+01132242 , 01142 , 011322122 ,01132222 |-----------------------------------------------------
+"I thought so. The area ahead is cursed."
+I'll lead you out.
+
+(1) Follow him.
+(2) Run away!|
+
+011322221 W|-----------------------------------------------------
+He leads you out and points you to the nearest town.
+The man also gives you some beef jerky for the road.
+Guess he wasn't so bad after all.|
 
 02 |-----------------------------------------------------
 You decide to follow the directions to the exit.
