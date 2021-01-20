@@ -18,13 +18,8 @@ You end up encountering a house.
 
 011 Q|-----------------------------------------------------
 You look around. There's a recently lit fire and a map on a table.
-<<<<<<< HEAD
 Then you hear the door slowly being open. 
 Quick! You only have 10 seconds.
-=======
-Then you hear the door slowly being open.
-Quick! You only have 15 seconds.
->>>>>>> 65f6d6e3876010b579254c91ba49d2c227795957
 
 (1) Hide in the closet.
 (2) Grab the axe across from the room.
