@@ -353,8 +353,9 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // Checks for convergence:
     char *potentialnewaddress = checkConvergence(buffer);
-    if (strcmp(checkConvergence(buffer), "noconvergence")) { // If there is convergence...
+    if (strcmp(potentialnewaddress, "noconvergence")) { // If there is convergence...
       strcpy(currentaddress, potentialnewaddress);
+      strcpy(node.address, potentialnewaddress);
     }
 
     if (autosave) autoSave();
