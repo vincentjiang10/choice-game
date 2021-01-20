@@ -364,12 +364,20 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       int f, status;
       f = fork();
       // child process displaying images
-      if (!f) {display(node.address);}
+      if (!f) {
+        display(node.address);
+      }
       // parent process waiting for child process
       else {
-        sleep(10);
-        kill(f, SIGKILL);
-        int childpid = waitpid(f, &status, 0);
+        int f2, status2;
+        f2 = fork();
+        // another child process
+        if (!f2) {
+          sleep(10);
+          kill(f, SIGKILL);
+          kill(getpid(), SIGKILL);
+        }
+        waitpid(f, &status, 0);
       }
     }
 
