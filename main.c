@@ -360,7 +360,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     if (autosave) autoSave();
     reader(node.address, buffer);
-    if ('y' == reader0(str, buffer2)) {
+    if ('y' == reader0(node.address, buffer2)) {
       int f, status;
       f = fork();
       // child process displaying images
@@ -385,7 +385,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // non-terminating case
     char add[256];
-    strcpy(add, str);
+    strcpy(add, node.address);
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
@@ -394,7 +394,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       time_t b = time(NULL);
       sprintf(choice, "%d", makeChoice(numChoice));
       time_t e = time(NULL);
-      if ((e - b) > 10.0){
+      if ((e - b) > 5.0){
         sprintf(choice, "%d", 4);
       }
     }
