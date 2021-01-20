@@ -128,3 +128,4 @@ Contributed by: Cullen Ye & Vincent Jiang
 1/20/2021 3 PM
 Contributed by: Vincent Jiang
 - fixed picture display termination
+- implemented trim feature to remove stdin whitespace from user

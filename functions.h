@@ -23,6 +23,9 @@ void promptLoadfile(char *buffer, char *buffer2);
 // function to prompt prompt restart
 void promptRestart(char *buffer, char *buffer2);
 
+// function that trims user input
+char * trim(char * input);
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice);
 

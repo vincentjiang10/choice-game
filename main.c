@@ -34,9 +34,11 @@ void promptImageMagick() {
   printf("\nNOTE: make sure to install ImageMagick before running this program\n");
   printf("To install: $ sudo apt-get install imagemagick\n");
   printf("Have you installed ImageMagick? (y/n)\n");
-  char promptResponse[10];
+  char response[10];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -48,7 +50,8 @@ void promptImageMagick() {
       else {
         printf("Invalid input. Type 'y' or 'n'.\n");
         sigs();
-        fgets(promptResponse, sizeof(promptResponse), stdin);
+        fgets(response, sizeof(response), stdin);
+        promptResponse = trim(response);
       }
     }
   }
@@ -63,9 +66,10 @@ void promptImageMagick() {
 
 // Function to prompt the player if they want to enable autosave. Enables autosave if desired.
 void promptAutosave() {
-  char promptResponse[256];
+  char response[256];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response); 
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -76,7 +80,8 @@ void promptAutosave() {
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
       sigs();
-      fgets(promptResponse, sizeof(promptResponse), stdin);
+      fgets(response, sizeof(response), stdin);
+      promptResponse = trim(response);
     }
   }
 
@@ -94,9 +99,10 @@ void promptAutosave() {
 
 // Function to prompt the player if they want to load a savefile.
 void promptLoadfile(char *buffer, char *buffer2) {
-  char promptResponse[256];
+  char response[256];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -107,7 +113,8 @@ void promptLoadfile(char *buffer, char *buffer2) {
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
       sigs();
-      fgets(promptResponse, sizeof(promptResponse), stdin);
+      fgets(response, sizeof(response), stdin);
+      promptResponse = trim(response);
     }
   }
 
@@ -145,9 +152,10 @@ void promptLoadfile(char *buffer, char *buffer2) {
 void promptRestart(char * buffer, char * buffer2) {
 
   printf("Would you like to restart the game? (y/n)\n");
-  char promptResponse[10];
+  char response[10];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -159,7 +167,8 @@ void promptRestart(char * buffer, char * buffer2) {
       else {
         printf("Invalid input. Type 'y' or 'n'.\n");
         sigs();
-        fgets(promptResponse, sizeof(promptResponse), stdin);
+        fgets(response, sizeof(response), stdin);
+        promptResponse = trim(response);
       }
     }
   }
@@ -187,12 +196,28 @@ void help() {
   printf("--------------------------------------------\n");
 }
 
+char * trim(char * input) {
+  char *output = malloc(sizeof(char)*256);
+  int i;
+  int j = 0;
+  for (i = 0; input[i]; i++) {
+    if (input[i]!=' ') {
+      output[j] = input[i];
+      j++;
+    }
+  }
+  return output;
+}
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice) {
     printf("Input choice #: ");
-    char choice [256];
+    char input [256];
     sigs();
-    fgets(choice, sizeof(choice), stdin);
+    fgets(input, sizeof(input), stdin);
+
+    // trims input and gets rid of leading and trailing whitespace
+    char * choice = trim(input);
 
     // If the player types 'restart'
     if (!strcmp(choice, "restart\n")) {
