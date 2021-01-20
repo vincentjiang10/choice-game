@@ -39,6 +39,8 @@ The player can pull up the menu, save the game, exit, and perform other features
 - Ctrl \ is inconsistent
 - possible whitespace compare, i.e. "compare  " would be removed to "compare" so that user can put whitespace and still get input: "compare"
 - possibly make numChoice.txt look a bit better (organization-wise)
+- add timer to quick-time events (change quick-time event to auto continue journey)
+- converge function not working properly
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen

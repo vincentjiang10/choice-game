@@ -41,7 +41,7 @@ You manage to get a lucky hit on him. He's bleeding out.
 (1) Escape.
 (2) Finish him off with the axe.|
 
-01131 L,01122 L|-----------------------------------------------------
+0124 L ,01131 L ,01122 L|-----------------------------------------------------
 His eyes suddenly glimmer.
 He uppercuts you with the speed of a demon.
 You never wake up again...|
@@ -84,12 +84,21 @@ You wander this dark dimension for the rest of eternity.|
 01133 Q,011322 Q|-----------------------------------------------------
 10 minutes later, you hear rustling behind you. It's the man!
 He's carrying an axe.
-Quick! You only have 15 seconds.
+Quick! You only have 5 seconds.
 
 (1) RUN!!
 (2) Confront him.|
 
-012 ,011322112 ,01112 ,01121 ,011322222 ,011322212 ,0113221 |-----------------------------------------------------
+012 Q|-----------------------------------------------------
+You hear hurried footsteps behind you, a trample of leaves and twigs. 
+Whipping around, you see a dark figure approaching you! 
+Quick, think, you only have 5 seconds!
+
+(1) RUN!!!
+(2) Confront him.|
+
+
+0121 ,011322112 ,01112 ,01121 ,011322222 ,011322212 ,0113221|-----------------------------------------------------
 You run as fast as you can. 
 You hear the man give chase but you manage to get away.
 However, you're surrounded by mist and you can't see.
@@ -108,7 +117,7 @@ He asks, "Why were you in my house?"
 (1) Uhh... sightseeing?
 (2) Sorry, I'm lost.|
 
-0113221 |-----------------------------------------------------
+0122 ,0113221 |-----------------------------------------------------
 You go in for a punch barrage.
 However, the man catches your fists! His grip is tight.
 
@@ -125,7 +134,7 @@ Caught by surprise, he lets you go.
 As you go in for another rush down attack, he slashes you.
 Everything fades to black. You die.|
 
-01132212 |-----------------------------------------------------
+0122 ,01132212 |-----------------------------------------------------
 He scoffs and asks you a question.
 "Why were you in my house?"
 
