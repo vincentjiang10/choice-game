@@ -393,7 +393,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       time_t b = time(NULL);
       sprintf(choice, "%d", makeChoice(numChoice));
       time_t e = time(NULL);
-      if ((e - b) > 5.0){
+      if ((e - b) > 10.0){
         sprintf(choice, "%d", 4);
       }
     }

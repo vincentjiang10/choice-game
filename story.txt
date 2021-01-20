@@ -19,7 +19,7 @@ You end up encountering a house.
 011 Q|-----------------------------------------------------
 You look around. There's a recently lit fire and a map on a table.
 Then you hear the door slowly being open. 
-Quick! You only have 15 seconds.
+Quick! You only have 10 seconds.
 
 (1) Hide in the closet.
 (2) Grab the axe across from the room.
@@ -84,7 +84,7 @@ You wander this dark dimension for the rest of eternity.|
 01133 Q,011322 Q|-----------------------------------------------------
 10 minutes later, you hear rustling behind you. It's the man!
 He's carrying an axe.
-Quick! You only have 5 seconds.
+Quick! You only have 10 seconds.
 
 (1) RUN!!
 (2) Confront him.|
@@ -92,7 +92,7 @@ Quick! You only have 5 seconds.
 012 Q|-----------------------------------------------------
 You hear hurried footsteps behind you, a trample of leaves and twigs. 
 Whipping around, you see a dark figure approaching you! 
-Quick, think, you only have 5 seconds!
+Quick, think, you only have 10 seconds!
 
 (1) RUN!!!
 (2) Confront him.|
