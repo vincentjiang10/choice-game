@@ -364,7 +364,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       int f, status;
       f = fork();
       // child process displaying images
-      if (!f) {display(str);}
+      if (!f) {display(node.address);}
       // parent process waiting for child process
       else {
         sleep(10);

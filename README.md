@@ -21,26 +21,16 @@ The player can pull up the menu, save the game, exit, and perform other features
 4) Signals
 5) Processes
 
-### Possible Additions (if we have enough time):
-- Add quick-time choices. (Use the wait() function)
-- Custom-drawn pictures.
-- Items
-- Mini-games
-- Awards
-- Another story (in main.c ask user which story to choose; change buffer and buffer2 accordingly)
-
 ### Current Issues To Fix:
 - update instructions
-- update help function with additional add-ons and features
 - update apt-get instructions
 - story writing
 - picture implementation
 - Typing "quit" and "exit" doesn't quit the game. Possibly just ending the child process. (Vincent - it does for me tho?)
 - Ctrl \ is inconsistent
 - possible whitespace compare, i.e. "compare  " would be removed to "compare" so that user can put whitespace and still get input: "compare"
-- possibly make numChoice.txt look a bit better (organization-wise)
 - add timer to quick-time events (change quick-time event to auto continue journey)
-- converge function not working properly
+- fix picture display for manual termination
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen
