@@ -326,7 +326,7 @@ char * checkConvergence(char * buffer) {
   char *str = strstr(buffer, currentaddress);
   int i = strlen(currentaddress)+1;
 
-  if (str[i]=='W'||str[i]=='L') i++;
+  if (str[i]=='W'||str[i]=='L'||str[i]=='Q') i++;
 
   // If there's no comma, then there's no convergence needed.
   if (str[i]!=',') {
