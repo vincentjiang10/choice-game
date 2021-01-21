@@ -141,3 +141,10 @@ Contributed by: Jacky Chen (2 AM warrior)
 Contributed by: Vincent Jiang
 - added rm-auto to remove autosave
 - fixed prompts feature: no additional message display
+
+1/21/2021 2 PM
+Contributed by: Cullen Ye
+- created endgame function
+   - prints out whether the player won or lost
+   - calculates their playtime into hours, minutes, seconds
+- added a global time_t variable to track start time
