@@ -35,6 +35,9 @@ int helper(char * str);
 // checks for convergence and merges addresses accordingly
 char * checkConvergence();
 
+// prints whether the player won or not & calculates their playtime
+void endgame(int winorloss);
+
 // makes node and connects to next node recursively
 struct Node makeNode(char str[], char * buffer, char * buffer2);
 
