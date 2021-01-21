@@ -129,3 +129,10 @@ Contributed by: Cullen Ye & Vincent Jiang
 Contributed by: Vincent Jiang
 - fixed picture display termination
 - implemented trim feature to remove stdin whitespace from user
+
+1/21/2021 2 AM
+Contributed by: Jacky Chen (2 AM warrior)
+- added "prompts" optional input
+- it allows you to turn off/on the prompts at the beginning using a 3 digit number of 1s and 0s (1 = on, 0 = off)
+- bug: if you have an invalid input, it prints the prompt twice
+- bug: even if it IS valid, the makeChoice invalid prompt is printed (function still works though)

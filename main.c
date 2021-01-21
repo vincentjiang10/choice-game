@@ -188,6 +188,7 @@ void promptRestart(char * buffer, char * buffer2) {
 // print and summarize features
 void help() {
   printf("------------------------------------------\n");
+  printf("type \"prompts\" to turn off/on the beginning prompts\n");
   printf("type \"quit\" or \"exit\" to quit the game\n");
   printf("type \"back\" to move back to last scene\n");
   printf("type \"save\" to save the game at current scene\n");
