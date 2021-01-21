@@ -136,3 +136,8 @@ Contributed by: Jacky Chen (2 AM warrior)
 - it allows you to turn off/on the prompts at the beginning using a 3 digit number of 1s and 0s (1 = on, 0 = off)
 - bug: if you have an invalid input, it prints the prompt twice
 - bug: even if it IS valid, the makeChoice invalid prompt is printed (function still works though)
+
+1/21/2021 11 PM
+Contributed by: Vincent Jiang
+- added rm-auto to remove autosave
+- fixed prompts feature: no additional message display
