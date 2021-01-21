@@ -11,6 +11,7 @@
 
 char currentaddress[256]; // To keep track of what node we're currently at.
 int autosave = 0; // If 0, then autosave is off. If 1, then autosave is on.
+time_t starttime = 0; // Start time (epoch time)
 
 // Function to save the game.
 void saveGame() {
@@ -399,8 +400,34 @@ char * checkConvergence(char * buffer) {
   return newaddress;
 }
 
+// Endgame function. Prints whether the player won or not & calculates their playtime.
+void endgame(int winorloss) {
+  if (winorloss) { // If the player won
+    printf("\nCongratulations, you won!\n");
+  }
+  else { // If the player lost
+    printf("\nAww, you lost!\n");
+  }
+  time_t playtime = time(NULL) - starttime;
+  int hr = (playtime/3600);
+  int	min = (playtime -(3600*hr))/60;
+  int sec = (playtime -(3600*hr)-(min*60));
+
+  printf("Your playtime was ");
+  if (hr==1) printf("1 hour, ");
+  else if (hr>1) printf("%d hours, ", hr);
+  if (min==1) printf("1 minute, ");
+  else if (min>1) printf("%d minutes, ", min);
+  else if (hr>0) printf("0 minutes, ");
+  if (sec==1) printf("1 second!\n\n");
+  else if (sec>1) printf("%d seconds!\n\n", sec);
+  else printf("0 seconds!\n\n");
+}
+
 // makes node and links to next node recursively
 struct Node makeNode(char str [256], char * buffer, char * buffer2) {
+    if (!starttime) starttime = time(NULL); // Set start time.
+  
     struct Node node;
     strcpy(node.address, str);
 
@@ -441,8 +468,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // terminating case
     char letter = reader0(str, buffer);
     if (letter == 'L' || letter == 'W') {
-      if (letter == 'W') printf("\nWooHoo!!! Looks like you win! :)\n");
-      if (letter == 'L') printf("\nOOF! looks like you lose! :(\n");
+      if (letter == 'W') endgame(1); // endgame with a win
+      if (letter == 'L') endgame(0); // endgame with a loss
       promptRestart(buffer, buffer2);
     }
 
