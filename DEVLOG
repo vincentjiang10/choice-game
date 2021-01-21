@@ -119,3 +119,13 @@ Contributed by: Vincent Jiang
 Contributed by: Jacky Chen
 - first half of story implemented
 - working on 2nd half
+
+1/20/2021 2 PM
+Contributed by: Cullen Ye & Vincent Jiang
+- fixed convergence function
+- fixed formatting for story.txt
+
+1/20/2021 3 PM
+Contributed by: Vincent Jiang
+- fixed picture display termination
+- implemented trim feature to remove stdin whitespace from user

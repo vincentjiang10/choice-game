@@ -36,9 +36,11 @@ void promptImageMagick() {
   printf("\nNOTE: make sure to install ImageMagick before running this program\n");
   printf("To install: $ sudo apt-get install imagemagick\n");
   printf("Have you installed ImageMagick? (y/n)\n");
-  char promptResponse[10];
+  char response[10];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -50,7 +52,8 @@ void promptImageMagick() {
       else {
         printf("Invalid input. Type 'y' or 'n'.\n");
         sigs();
-        fgets(promptResponse, sizeof(promptResponse), stdin);
+        fgets(response, sizeof(response), stdin);
+        promptResponse = trim(response);
       }
     }
   }
@@ -65,9 +68,10 @@ void promptImageMagick() {
 
 // Function to prompt the player if they want to enable autosave. Enables autosave if desired.
 void promptAutosave() {
-  char promptResponse[256];
+  char response[256];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response); 
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -78,7 +82,8 @@ void promptAutosave() {
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
       sigs();
-      fgets(promptResponse, sizeof(promptResponse), stdin);
+      fgets(response, sizeof(response), stdin);
+      promptResponse = trim(response);
     }
   }
 
@@ -96,9 +101,10 @@ void promptAutosave() {
 
 // Function to prompt the player if they want to load a savefile.
 void promptLoadfile(char *buffer, char *buffer2) {
-  char promptResponse[256];
+  char response[256];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -109,7 +115,8 @@ void promptLoadfile(char *buffer, char *buffer2) {
       }
       else {printf("Invalid input. Type 'y' or 'n'.\n");}
       sigs();
-      fgets(promptResponse, sizeof(promptResponse), stdin);
+      fgets(response, sizeof(response), stdin);
+      promptResponse = trim(response);
     }
   }
 
@@ -147,9 +154,10 @@ void promptLoadfile(char *buffer, char *buffer2) {
 void promptRestart(char * buffer, char * buffer2) {
 
   printf("Would you like to restart the game? (y/n)\n");
-  char promptResponse[10];
+  char response[10];
   sigs();
-  fgets(promptResponse, sizeof(promptResponse), stdin);
+  fgets(response, sizeof(response), stdin);
+  char * promptResponse = trim(response);
 
   // If the player types anything other than 'y' or 'n'
   if (strcmp(promptResponse, "y\n")&&strcmp(promptResponse, "n\n")) {
@@ -161,7 +169,8 @@ void promptRestart(char * buffer, char * buffer2) {
       else {
         printf("Invalid input. Type 'y' or 'n'.\n");
         sigs();
-        fgets(promptResponse, sizeof(promptResponse), stdin);
+        fgets(response, sizeof(response), stdin);
+        promptResponse = trim(response);
       }
     }
   }
@@ -189,12 +198,28 @@ void help() {
   printf("--------------------------------------------\n");
 }
 
+char * trim(char * input) {
+  char *output = malloc(sizeof(char)*256);
+  int i;
+  int j = 0;
+  for (i = 0; input[i]; i++) {
+    if (input[i]!=' ') {
+      output[j] = input[i];
+      j++;
+    }
+  }
+  return output;
+}
+
 // function which makes the choice (takes in stdin int)
 int makeChoice(int numChoice) {
     printf("Input choice #: ");
-    char choice [256];
+    char input [256];
     sigs();
-    fgets(choice, sizeof(choice), stdin);
+    fgets(input, sizeof(input), stdin);
+
+    // trims input and gets rid of leading and trailing whitespace
+    char * choice = trim(input);
 
     // If the player types 'restart'
     if (!strcmp(choice, "restart\n")) {
@@ -380,22 +405,31 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // Checks for convergence:
     char *potentialnewaddress = checkConvergence(buffer);
-    if (strcmp(checkConvergence(buffer), "noconvergence")) { // If there is convergence...
+    if (strcmp(potentialnewaddress, "noconvergence")) { // If there is convergence...
       strcpy(currentaddress, potentialnewaddress);
+      strcpy(node.address, potentialnewaddress);
     }
 
     if (autosave) autoSave();
     reader(node.address, buffer);
-    if ('y' == reader0(str, buffer2)) {
+    if ('y' == reader0(node.address, buffer2)) {
       int f, status;
       f = fork();
       // child process displaying images
-      if (!f) {display(str);}
+      if (!f) {
+        display(node.address);
+      }
       // parent process waiting for child process
       else {
-        sleep(10);
-        kill(f, SIGKILL);
-        int childpid = waitpid(f, &status, 0);
+        int f2, status2;
+        f2 = fork();
+        // another child process
+        if (!f2) {
+          sleep(10);
+          kill(f, SIGKILL);
+          kill(getpid(), SIGKILL);
+        }
+        waitpid(f, &status, 0);
       }
     }
 
@@ -411,7 +445,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
     // non-terminating case
     char add[256];
-    strcpy(add, str);
+    strcpy(add, node.address);
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
@@ -420,7 +454,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
       time_t b = time(NULL);
       sprintf(choice, "%d", makeChoice(numChoice));
       time_t e = time(NULL);
-      if ((e - b) > 10.0){
+      if ((e - b) > 5.0){
         sprintf(choice, "%d", 4);
       }
     }
