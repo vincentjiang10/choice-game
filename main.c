@@ -196,6 +196,7 @@ void help() {
   printf("type \"replay\" to replay current scene\n");
   printf("type \"restart\" to restart the game\n");
   printf("type \"rm-auto\" to remove autosave\n");
+  printf("type \"prompts\" to disable or enable prompts at the beginning of program\n");
   printf("--------------------------------------------\n");
 }
 
