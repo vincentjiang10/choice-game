@@ -26,7 +26,6 @@ The player can pull up the menu, save the game, exit, and perform other features
 - update apt-get instructions
 - story writing
 - picture implementation (after story writing)
-- Typing "quit" and "exit" doesn't quit the game. Possibly just ending the child process. (Vincent - it does for me tho? We need to check sometime)
 - Ctrl \ is inconsistent (We need to check sometime)
 - add timer to quick-time events (change quick-time event to automatically continue journey when time runs out)
 - modify help function
