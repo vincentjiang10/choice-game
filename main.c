@@ -14,8 +14,10 @@ int autosave = 0; // If 0, then autosave is off. If 1, then autosave is on.
 
 // Function to save the game.
 void saveGame() {
+  int fd = open("savefile.txt", O_CREAT, 0666);
+  close(fd);
   printf("Saved Game!\n");
-  int fd = open("savefile.txt", O_WRONLY);
+  fd = open("savefile.txt", O_WRONLY);
   write(fd, currentaddress, sizeof(currentaddress));
   close(fd);
 }
@@ -221,6 +223,31 @@ int makeChoice(int numChoice) {
       return makeChoice(numChoice);
     }
 
+    // If the player types 'prompts'
+    else if (!strcmp(choice, "prompts\n")) {
+      sigs();
+      int fd = open("prompts.txt", O_CREAT, 0666);
+      close(fd);
+      printf("\nWhich prompts do you want?\n");
+      fd = open("prompts.txt", O_WRONLY);
+      char prom [4];
+      printf("Type in 3 digits. 0 means the prompt is off. 1 means it's on.\nThe first digit corresponds to the ImageMagick prompt, etc.\n");
+      fgets(prom, sizeof(prom), stdin);
+      int i;
+      for(i = 0; i < 3; i++){
+        if (prom[i] != '1' && prom[i] != '0') {
+          while (prom[i] != '1' && prom[i] != '0') {
+           printf("Invalid input. Only use 1s and 0s.\n");
+            sigs();
+            fgets(prom, sizeof(prom), stdin);
+           }
+         }
+      }
+      write(fd, prom, sizeof(prom));
+      close(fd);
+      return makeChoice(numChoice);
+    }
+
     // If the player types 'back'
     else if (!strcmp(choice, "back\n")){
       if (!strcmp(currentaddress, "0")) {
@@ -419,9 +446,14 @@ int main() {
     int fd2 = open("numChoice.txt", O_RDONLY);
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);
+    // loads prompt options (on/off)
+    char buffer3[4];
+    int fd3 = open("prompts.txt", O_RDONLY);
+    read(fd3, buffer3, sizeof(buffer3));
+    close(fd3);
 
     // Check if the player has installed:
-    promptImageMagick();
+    if (buffer3[0] == '1') promptImageMagick();
 
     printf("\nNOTE: throughout the program, pictures will be displayed for immersion\n"); 
     printf("Please exit the picture manually to continue, else the picture will exit automatically in a few seconds\n");
@@ -429,13 +461,19 @@ int main() {
     printf("NOTE: type in \"help\" anytime expand program features and utilities\n");
     while (1) {
       // Autosave Prompt:
+      if (buffer3[1] == '1'){
       printf("\nWould you like to enable autosave? (y/n)\n");
-      promptAutosave();
+      promptAutosave();}
 
       // Loadfile Prompt: (If they don't want to load, the game starts at the beginning.)
+      if (buffer3[2] == '1'){
       printf("Would you like to load in a saved file? (y/n)\n");
-      promptLoadfile(buffer, buffer2);
-      
+      promptLoadfile(buffer, buffer2);}
+      else{
+        char address[256];
+        address[0] = '0'; 
+        struct Node node = makeNode(address, buffer, buffer2);
+      }
     }
 
     return 0;
