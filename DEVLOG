@@ -148,3 +148,7 @@ Contributed by: Cullen Ye
    - prints out whether the player won or lost
    - calculates their playtime into hours, minutes, seconds
 - added a global time_t variable to track start time
+
+1/21/2021 11 PM
+Contributed by: Jacky Chen
+- fixed a few addresses
