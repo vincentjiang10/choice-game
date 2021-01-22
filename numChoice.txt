@@ -3,9 +3,9 @@
 // Note: replace above * with 'y' or 'n' to indicate whether there is a picture file that is to be opened
 
 0 y :2
-01 n, 02 n :2
+01 y, 02 n :2
 011 n :4
-0111 n :2
+0111 y :2
 0113 n :3
 0112 n :2 
 01131 n :terminating(L)

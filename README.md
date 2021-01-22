@@ -26,9 +26,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 - update apt-get instructions
 - story writing
 - picture implementation (after story writing)
-- Ctrl \ is inconsistent (We need to check sometime)
 - add timer to quick-time events (change quick-time event to automatically continue journey when time runs out)
-- modify help function
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen

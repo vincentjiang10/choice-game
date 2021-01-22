@@ -191,8 +191,7 @@ void help() {
   printf("------------------------------------------\n");
   printf("type \"quit\" or \"exit\" to quit the game\n");
   printf("type \"back\" to move back to last scene\n");
-  printf("type \"save\" to save the game at current scene\n");
-  printf("type \"Ctrl \\\" to save the game and quit (it doesn't quit for me -Vincent- for some reason)\n");
+  printf("type \"save\" or \"Ctrl \\\" to save the game at current scene\n");
   printf("type \"Ctrl C\" or \"Ctrl Z\" to quit the game\n");
   printf("type \"replay\" to replay current scene\n");
   printf("type \"restart\" to restart the game\n");
@@ -235,6 +234,7 @@ int makeChoice(int numChoice) {
 
     // If the play types "rm autosave"
     else if (!strcmp(choice, "rm-auto\n")) {
+      printf("Autosave removed!\n");
       autosave = 0;
       return makeChoice(numChoice);
     }
@@ -362,9 +362,20 @@ char ** parse_args(char * line) {
 
 // function for displaying images
 void display(char * address) {
+  char buffer[1000];
+  int fd = open("pictureAddress.txt", O_RDONLY);
+  read(fd, buffer, sizeof(buffer));
+  close(fd);
+  char *x = strstr(buffer, address);
+  x+=strlen(address); x++;
+  char picAddress[50];
+  int j = 0;
+  int i; for (i = 0; x[i] != '|'; x++) {
+    picAddress[j] = x[i];
+    j++;
+  }
   char line[256] = "display -resize 500x500 pics/";
-  strcat(line, address); strcat(line, ".jpg");
-  printf("the display command: %s", line);
+  strcat(line, picAddress); strcat(line, ".jpg");
   char **args = parse_args(line);
   execvp(args[0], args);
 }

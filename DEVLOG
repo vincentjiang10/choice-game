@@ -152,3 +152,9 @@ Contributed by: Cullen Ye
 1/21/2021 11 PM
 Contributed by: Jacky Chen
 - fixed a few addresses
+
+1/22/2021 3 PM
+Contributed by: Vincent Jiang 
+- added pictureAddress.txt
+- modified rm-auto function
+- added initial pictures to story (Address: 0, 01, 0111, 02)
