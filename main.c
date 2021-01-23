@@ -315,7 +315,7 @@ void reader(char * address, char * buffer){
     strcpy(add, address);
     strcat(add, " ");
     char *x = strstr(buffer, add);
-    x+=strlen(address);
+    x+=strlen(add);
     int i; for (i = 0; x[i] != '|'; x++); x++;
     int k; for (k = 0; x[k] != '|'; k++) printf("%c", x[k]);
     printf("\n");
@@ -323,8 +323,11 @@ void reader(char * address, char * buffer){
 
 // second reader; returns the number of choices at address
 int reader2(char * address, char * buffer) {
-    char *x = strstr(buffer, address);
-    x+=strlen(address);
+    char add [256];
+    strcpy(add, address);
+    strcat(add, " ");
+    char *x = strstr(buffer, add);
+    x+=strlen(add);
     int i; for (i = 0; x[i] != ':'; x++); x++;
     return atoi(x);
 }
@@ -457,7 +460,10 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     }
 
     if (autosave) autoSave();
+    
     reader(node.address, buffer);
+
+    
     if ('y' == reader0(node.address, buffer2)) {
       int f, status;
       f = fork();
@@ -478,11 +484,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
         waitpid(f, &status, 0);
       }
     }
-
-    char choice[10];
-
     // terminating case
-    char letter = reader0(str, buffer);
+    char letter = reader0(node.address, buffer);
     if (letter == 'L' || letter == 'W') {
       if (letter == 'W') endgame(1); // endgame with a win
       if (letter == 'L') endgame(0); // endgame with a loss
@@ -492,6 +495,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     // non-terminating case
     char add[256];
     strcpy(add, node.address);
+
+    char choice[10];
 
     // reads from buffer2 the number of choices with address
     int numChoice = reader2(node.address, buffer2);
@@ -504,9 +509,10 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
         sprintf(choice, "%d", 4);
       }
     }
-    else{
-    sprintf(choice, "%d", makeChoice(numChoice));
+    else {
+      sprintf(choice, "%d", makeChoice(numChoice));
     }
+
 
     if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
     else if (!strcmp(choice, "9"));
@@ -517,12 +523,12 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
 
 int main() {
     // loads in story.txt into a buffer
-    char buffer[10000];
+    char buffer[50000];
     int fd = open("story.txt", O_RDONLY);
     read(fd, buffer, sizeof(buffer));
     close(fd);
     // loads numChoice.txt into another buffer
-    char buffer2[500];
+    char buffer2[10000];
     int fd2 = open("numChoice.txt", O_RDONLY);
     read(fd2, buffer2, sizeof(buffer2));
     close(fd2);

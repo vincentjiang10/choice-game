@@ -111,7 +111,7 @@ However, you're surrounded by mist and you can't see.
 The mist seems to get thicker. No matter where you run it doesn't dissipate.
 Eventually you collapse from exhaustion...|
 
-0113224 ,0114 |-----------------------------------------------------
+0114 ,0113224 ,0113223 |-----------------------------------------------------
 You take too long and the man confronts you!
 He asks, "Why were you in my house?"
 
