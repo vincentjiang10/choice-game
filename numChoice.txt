@@ -3,11 +3,11 @@
 // Note: replace above * with 'y' or 'n' to indicate whether there is a picture file that is to be opened
 
 0 y :2
-01 y, 02 n :2
+01 y, 02 y :2
 011 n :4
 0111 y :2
 0113 n :3
-0112 n :2 
+0112 y :2 
 01131 n :terminating(L)
 01122 n :terminating(L)
 01132 n, 01111 n :2
@@ -16,12 +16,13 @@
 0113212 n :terminating(L)
 011322 n, 01133 n :4
 012 n, 0121 n, 0122 n :2
-0121 n,011322312 n,011322321 n,01112 n,01121 n,011322212 n,0113221 n :2
+0113221 y :2
+0121 y,011322312 y,011322321 y,01112 y,01121 y,011322212 y,0113221 y :2
 01132211 n, 01132212 n :terminating(L)
 01132221 n :2 y
 0113223 n :2
 01132231 n,01132232 n :2
-0124 n, 01222 n, 011322211 n :terminating(L)  y
+0124 n, 01222 n, 011322211 n :terminating(L) 
 0113224 n, 0114 n, 01132212 n:2
 01132242 n, 01142 n, 011322122 n,01132222 n :2
 01132241 n, 01141 n,01132221 n :2

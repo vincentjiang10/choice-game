@@ -366,10 +366,15 @@ void display(char * address) {
   int fd = open("pictureAddress.txt", O_RDONLY);
   read(fd, buffer, sizeof(buffer));
   close(fd);
-  char *x = strstr(buffer, address);
-  x+=strlen(address); x++;
+  char add[256];
+  strcpy(add, address);
+  strcat(add, " ");
+  char *x = strstr(buffer, add);
+  x+=strlen(add);
+  int j;
+  for (j = 0; x[j] != ':'; x++); x++;
   char picAddress[50];
-  int j = 0;
+  j = 0;
   int i; for (i = 0; x[i] != '|'; x++) {
     picAddress[j] = x[i];
     j++;

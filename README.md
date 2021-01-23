@@ -27,6 +27,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 - story writing
 - picture implementation (after story writing)
 - add timer to quick-time events (change quick-time event to automatically continue journey when time runs out)
+- issue with back - doesn't go back to correct when merging since address is switched
 
 ### Project Responsibilities:
 **Story Writing:** Jacky, Vincent, Cullen

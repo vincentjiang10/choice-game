@@ -34,8 +34,8 @@ The man was large and his body made a loud "thump" sound when it hit the floor.
 (3) Just leave the house.|
 
 0112 |-----------------------------------------------------
-You rush over and grab the axe.
-The large man enters the room. He's carrying an axe. "Thief!," he exclaims as he rushes over for a fight.
+You rush over and grab an axe.
+The large man enters the room. He's carrying a butcher's knife. "Thief!," he exclaims as he rushes over.
 You manage to get a lucky hit on him. He's bleeding out.
 
 (1) Escape.
