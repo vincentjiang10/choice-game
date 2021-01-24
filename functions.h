@@ -3,6 +3,7 @@
 
 struct Node {
     char address[256];
+    char prev[256];
 };
 
 // function to save the game at any given point

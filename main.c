@@ -449,6 +449,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
   
     struct Node node;
     strcpy(node.address, str);
+    strcpy(node.prev, currentaddress);
 
     strcpy(currentaddress, node.address); // Sets the "currentaddress" (global String) to this node's address.
 
@@ -514,7 +515,7 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     }
 
 
-    if (!strcmp(choice, "10")) add[strlen(add)-1] = 0;
+    if (!strcmp(choice, "10")) strcpy(add,node.prev);
     else if (!strcmp(choice, "9"));
     else {strcat(add, choice);}
     if (!strcmp(choice, "0")) main();
