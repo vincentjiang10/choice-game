@@ -1,0 +1,9 @@
+// format
+// Address :picture.jpg|
+
+0 :forest|
+01 :cabin|
+02 :creepy_forest|
+0111 :closet|
+0112 :axe_bloody|
+0113221 :mist|
