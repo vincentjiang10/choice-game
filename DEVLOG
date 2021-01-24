@@ -160,3 +160,7 @@ Contributed by: Vincent Jiang
 - added initial pictures to story (Address: 0, 01, 0111, 02)
 - added more pictures (check pictureAddress for more detail)
 - fixed string memory bug
+
+1/23/2020 11 PM
+Contributed by: Jacky Chen
+- adjusted back feature to compensate for merging
