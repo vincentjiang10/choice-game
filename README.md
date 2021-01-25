@@ -22,6 +22,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 5) Processes
 
 ### Current Bugs:
+- loading savefile disrupts game features in help()
 - "back" is clunky with merged addresses
     - spamming it may result in an infinite loop
 
