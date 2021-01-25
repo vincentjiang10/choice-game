@@ -22,12 +22,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 5) Processes
 
 ### Current Issues To Fix:
-- update instructions
 - update apt-get instructions
-- story writing
-- picture implementation (after story writing)
-- add timer to quick-time events (change quick-time event to automatically continue journey when time runs out)
-- issue with back - doesn't go back to correct when merging since address is switched
 - loading save file disrupts help function features (save, etc)
 
 ### Project Responsibilities:
@@ -52,6 +47,8 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### functions.h
 #### makefile
 #### savefile.txt
+#### prompts.txt
+#### pictureAddress.txt
 #### story.txt
 #### numChoice.txt
 #### pics
@@ -77,5 +74,10 @@ Run the following code to install ImageMagick:\
 $ sudo apt-get install imagemagick\
 
 ### Instructions 
-// to be updated\
+- install ImageMagick
+- $ make
+- $ make run
+- Type a number from 1-3, depending on the choices available to select that choice.
+- Type "help" any time to see optional input choices. 
+
 // To be included (or fixed) later: throughout the program, please close image files after each decision input before continuing. Failure to do so would stop the program from running. 
