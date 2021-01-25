@@ -41,7 +41,7 @@ You manage to get a lucky hit on him. He's bleeding out.
 (1) Escape.
 (2) Finish him off with the axe.|
 
-0124 L ,01131 L ,01122 L|-----------------------------------------------------
+0124 L,01131 L,01122 L|-----------------------------------------------------
 His eyes suddenly glimmer.
 He uppercuts you with the speed of a demon.
 You never wake up again...|
@@ -157,7 +157,7 @@ He begins walking back to his house.
 (1) Tell him you're lost before he leaves.
 (2) Continue on your path.|
 
-01132242 ,01142 ,011322311, 01132232 |-----------------------------------------------------
+01132242 ,01142 ,011322311 ,01132232 |-----------------------------------------------------
 "I thought so. The area ahead is cursed."
 I'll lead you out.
 
@@ -191,10 +191,10 @@ Quick! You only have 10 seconds.
 (1) Hit the monster with your branch.
 (2) Drop the branch and keep running.|
 
-022214 L,02111314 L,021113224 L,0211114 L, 02114 L|-----------------------------------------------------
+022214 L,02111314 L,021113224 L,0211114 L,02114 L|-----------------------------------------------------
 You take too long to decide. The monster decapitates you.|
 
-0212 L, 02112 L|-----------------------------------------------------
+0212 L,02112 L|-----------------------------------------------------
 You're not weighed down by the branch, so you're able to dodge the monster as it lunges at you.
 You continue running, but it soon catches up and decapitates you.|
 
@@ -230,14 +230,14 @@ Quick! You only have 10 seconds.
 (2) Punch the monster.
 (3) Drop the branch and run.|
 
-0211112, 021113 |-----------------------------------------------------
+0211112 ,021113 |-----------------------------------------------------
 You drop the branch and continue to run.
 You see an exit sign, but you hear rustling from behind you.
 
 (1) Take the exit.
 (2) Hide behind a tree.|
 
-02111322 Q, 0211131 Q|-----------------------------------------------------
+02111322 Q,0211131 Q|-----------------------------------------------------
 You make a run for the exit.
 But before you get there, the monster catches up and jumps on top of you.
 Quick! You only have 10 seconds.
@@ -246,7 +246,7 @@ Quick! You only have 10 seconds.
 (2) Play dead.
 (3) Plead for it to stop.|
 
-021113121 W, 02111311 W|-----------------------------------------------------
+021113121 W,02111311 W|-----------------------------------------------------
 You punch the monster in the face, clearly disorienting it.
 You push the monster off of you and run to the exit.
 Once you pass the exit, the monster stops chasing you.
@@ -274,7 +274,7 @@ Suddenly, it stops, but it doesn't seem to have noticed you.
 (1) Ambush it.
 (2) Continue hiding behind the tree.|
 
-022213 L,02222 L, 021113221 L,02111321 L|-----------------------------------------------------
+022213 L,02222 L,021113221 L,02111321 L|-----------------------------------------------------
 You jump out from behind the tree to ambush it.
 But then you realize you have no weapon.
 It easily decapitates you.|
@@ -288,7 +288,7 @@ Quick! You only have 10 seconds.
 (2) Run for the exit.
 (3) Stay still and don't breathe.|
 
-02223 L, 021113223 L|-----------------------------------------------------
+02223 L,021113223 L|-----------------------------------------------------
 You don't move and hold your breathe, hoping it doesn't spot you.
 However, the monster clearly isn't stupid. It comes over and decapitates you.|
 
@@ -309,8 +309,7 @@ Quick! You only have 10 seconds.
 (1) Backhand that thing!
 (2) Run for your life.|
 
-0211121 L,0211122 L,0211123 L,0211124 L,02214 L,02212 L,02211 L
-|-----------------------------------------------------
+0211121 L,0211122 L,0211123 L,0211124 L,02214 L,02212 L,02211 L|-----------------------------------------------------
 Before you could even react, you feel warm.
 It’s your blood. You’re dead. The creature got too close.|
 
@@ -359,11 +358,11 @@ It releases you in pain.
 (1) Attack it.
 (2) Run.|
 
-022211121 L, 022211111 L|-----------------------------------------------------
+022211121 L,022211111 L|-----------------------------------------------------
 Enraged, you rush in and try to attack.
 The monster lunges towards you and decapitates you.|
 
-022211122 W, 022211 W, 02221111 W|-----------------------------------------------------
+022211122 W,022211 W,02221111 W|-----------------------------------------------------
 You manage to make it out while the monster is down.
 While walking to the nearest town you periodically look back just in case.
 It seems as if you scared it off.|
