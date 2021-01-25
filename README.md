@@ -21,8 +21,9 @@ The player can pull up the menu, save the game, exit, and perform other features
 4) Signals
 5) Processes
 
-### Current Issues To Fix:
+### Current Bugs:
 - update apt-get instructions
+- "back" is clunky with merged addresses
 - loading save file disrupts help function features (save, etc)
 
 ### Project Responsibilities:
