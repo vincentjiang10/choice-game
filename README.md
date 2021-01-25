@@ -24,6 +24,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 ### Current Bugs:
 - update apt-get instructions
 - "back" is clunky with merged addresses
+    - spamming it may result in an infinite loop
 - loading save file disrupts help function features (save, etc)
 
 ### Project Responsibilities:
