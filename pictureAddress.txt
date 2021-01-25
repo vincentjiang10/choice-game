@@ -7,3 +7,41 @@
 0111 :closet|
 0112 :axe_bloody|
 0113221 :mist|
+01122 :man|
+011321 :shovel|
+0113211 :bright|
+0113212 :blacklight|
+011322 :man_axe|
+01132212 :mist_lose|
+011322211 :slash|
+01132232 :cursed|
+011322321 :beef_jerky|
+021 :branch|
+0211 :monster|
+02114 :monster_lose|
+02112 :monster_lose|
+021111 :monster_back|
+0211111 :moster_lose|
+021112 :monster_back|
+021113 :exit|
+0211131 :monster_back|
+02111311 :exit_win|
+021113122 :monster_lose|
+02111313 :monster_lose|
+0211132 :monster|
+02111321 :monster_lose|
+021113223 :monster_lose|
+022 :bush|
+0221 :monster_back|
+02211 :monster_lose|
+02221 :screech|
+02221112 :release|
+02221111 :release|
+022211111 :monster_lose|
+022211112 :town_win|
+0222121 :monster_lose|
+0222124 :town_win|
+
+
+
+

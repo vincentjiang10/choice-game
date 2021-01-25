@@ -63,7 +63,7 @@ There's a mark on the map to the right of the house.
 011321 |-----------------------------------------------------
 You grab a shovel that's conveniently propped against the house. Then you walk to the mark.
 There's a sign above what you assume is the location. After digging for what seems to be an hour, you find a crest.
-You begin hearing loud footsteps coming towards you though.
+Suddenly, you hear loud footsteps coming towards you.
 
 (1) Run!!
 (2) Confront the threat.|
@@ -362,7 +362,7 @@ It releases you in pain.
 Enraged, you rush in and try to attack.
 The monster lunges towards you and decapitates you.|
 
-022211122 W,022211 W,02221111 W|-----------------------------------------------------
+022211122 W,022211 W,022211112 W|-----------------------------------------------------
 You manage to make it out while the monster is down.
 While walking to the nearest town you periodically look back just in case.
 It seems as if you scared it off.|
