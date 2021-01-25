@@ -79,7 +79,7 @@ $ sudo apt-get install imagemagick\
 - install ImageMagick
 - $ make
 - $ make run
-- Type a number from 1-3, depending on the choices available to select that choice.
-- Type "help" any time to see optional input choices. 
-
-// To be included (or fixed) later: throughout the program, please close image files after each decision input before continuing. Failure to do so would stop the program from running. 
+- Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
+- You may type "help" any time to see optional input choices and features.
+- Have fun!  
+ 
