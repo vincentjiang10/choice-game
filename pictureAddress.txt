@@ -41,7 +41,7 @@
 022211112 :town_win|
 0222121 :monster_lose|
 0222124 :town_win|
-
+00 :enchanting_forest|
 
 
 

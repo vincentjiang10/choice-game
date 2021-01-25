@@ -248,6 +248,7 @@ int makeChoice(int numChoice) {
     // If the player types 'quit'
     else if (!strcmp(choice, "quit\n") || !strcmp(choice, "exit\n")) {
       printf("\nHope you had fun!\n");
+      display("00");
       exit(0);
     }
 
@@ -340,6 +341,7 @@ static void sighandler(int signo){
     }
     if (signo == SIGINT || signo == SIGTERM || signo == SIGTSTP) {
       printf("\nHope you had fun!\n");
+      display("00");
       exit(0);
     }
 }
