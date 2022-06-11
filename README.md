@@ -73,6 +73,8 @@ The player can pull up the menu, save the game, exit, and perform other features
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming, vcXsrv)\
 Run the following code to install ImageMagick:\
 $ sudo apt-get install imagemagick\
+NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew:\
+$ brew install imagemagick
 
 ### Instructions 
 - install ImageMagick
