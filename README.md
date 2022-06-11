@@ -1,6 +1,6 @@
 ## Project 02 - Final
 **Project Name:** Horror Visual Novel\
-**Team Members:** Jacky Chen, Vincent Jiang, Cullen Ye\
+**Team Members:** Vincent Jiang, Cullen Ye, Jacky Chen\
 **Class Period:** Period 10
 
 ### Project Description:
@@ -73,7 +73,7 @@ The player can pull up the menu, save the game, exit, and perform other features
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming, vcXsrv)\
 Run the following code to install ImageMagick:\
 $ sudo apt-get install imagemagick\
-NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew:\
+NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew (https://brew.sh/):\
 $ brew install imagemagick
 
 ### Instructions 
