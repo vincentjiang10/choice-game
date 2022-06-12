@@ -317,7 +317,7 @@ void reader(char * address, char * buffer){
     strcat(add, " ");
     char *x = strstr(buffer, add);
     x+=strlen(add);
-    int i; for (i = 0; x[i] != '|'; x++); x++;
+    int i; for (i = 0; x[i] != '|'; x++) {}; x++;
     int k; for (k = 0; x[k] != '|'; k++) printf("%c", x[k]);
     printf("\n");
 }
@@ -329,7 +329,7 @@ int reader2(char * address, char * buffer) {
     strcat(add, " ");
     char *x = strstr(buffer, add);
     x+=strlen(add);
-    int i; for (i = 0; x[i] != ':'; x++); x++;
+    int i; for (i = 0; x[i] != ':'; x++) {}; x++;
     return atoi(x);
 }
 
@@ -377,7 +377,7 @@ void display(char * address) {
   char *x = strstr(buffer, add);
   x+=strlen(add);
   int j;
-  for (j = 0; x[j] != ':'; x++); x++;
+  for (j = 0; x[j] != ':'; x++) {}; x++;
   char picAddress[50];
   j = 0;
   int i; for (i = 0; x[i] != '|'; x++) {
@@ -394,8 +394,8 @@ void display(char * address) {
 // helper function for checkConvergence() - looks for the rightmost address of a converging Node
 int helper(char * str) {
   char *str2 = strchr(str, '|');
-  int i = (int)(str2- str);
-  for (i; str[i]!=','; i--);
+  int i;
+  for (i = (int)(str2- str); str[i]!=','; i--);
   return i+1;
 }
 
@@ -415,9 +415,10 @@ char * checkConvergence(char * buffer) {
   char *newaddress = malloc(sizeof(char)*256);
   i = helper(str);
   int j = 0;
-  for (i; str[i]!=' '; i++) {
+  while (str[i]!=' ') {
     newaddress[j] = str[i];
     j++;
+    i++;
   }
   return newaddress;
 }
@@ -523,6 +524,8 @@ struct Node makeNode(char str [256], char * buffer, char * buffer2) {
     else {strcat(add, choice);}
     if (!strcmp(choice, "0")) main();
     else {makeNode(add, buffer, buffer2);}
+
+    return node;
 }
 
 int main() {
