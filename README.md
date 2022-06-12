@@ -72,7 +72,10 @@ The player can pull up the menu, save the game, exit, and perform other features
 ### Apt-Get + Prerequisites
 NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming for Windows, vcXsrv, XQuartz for macOS)\
 Run the following code to install ImageMagick:\
-$ ```sudo apt-get install imagemagick```\
+$ 
+```
+sudo apt-get install imagemagick
+```
 NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew (https://brew.sh/): \
 $ ```brew install imagemagick``` \
 $ ```brew install --cask xquartz``` \
