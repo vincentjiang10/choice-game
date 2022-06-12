@@ -79,9 +79,9 @@ $ brew install --cask xquartz
 $ brew install tlk/imagemagick-x11/imagemagick
 
 ### Instructions 
-1.  install ImageMagick
-2.  install an X server (options in prerequisites above)
-3.  make sure to open up the X server
+1.  Install ImageMagick
+2.  Install an X server (options in prerequisites above)
+3.  Make sure to open up the X server
 4.  $ git clone https://github.com/CullenLYe/project02_final.git <dir_name>
 5.  $ cd <dir_name>
 6.  $ make
