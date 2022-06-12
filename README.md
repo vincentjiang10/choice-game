@@ -78,7 +78,8 @@ $ brew install imagemagick
 
 ### Instructions 
 - install ImageMagick
-- $ git clone https://github.com/CullenLYe/project02_final.git
+- $ git clone https://github.com/CullenLYe/project02_final.git <dir_name>
+- $ cd <dir_name>
 - $ make
 - $ make run
 - Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
