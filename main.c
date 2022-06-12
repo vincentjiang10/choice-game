@@ -384,6 +384,7 @@ void display(char * address) {
     picAddress[j] = x[i];
     j++;
   }
+  picAddress[j] = '\0';
   char line[256] = "display -resize 500x500 pics/";
   strcat(line, picAddress); strcat(line, ".jpg");
   char **args = parse_args(line);

@@ -21,7 +21,7 @@
 02114 :monster_lose|
 02112 :monster_lose|
 021111 :monster_back|
-0211111 :moster_lose|
+0211111 :monster_lose|
 021112 :monster_back|
 021113 :exit|
 0211131 :monster_back|
