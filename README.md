@@ -70,17 +70,23 @@ The player can pull up the menu, save the game, exit, and perform other features
 #### time.h
 
 ### Apt-Get + Prerequisites
-NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming, vcXsrv)\
+NOTE: WSL and WSL2 users may have to run the program through ssh (i.e. thorugh PuTTY); All users require an X server to run the project (i.e. Xming for Windows, vcXsrv, XQuartz for macOS)\
 Run the following code to install ImageMagick:\
 $ sudo apt-get install imagemagick\
-NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew (https://brew.sh/):\
+NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew (https://brew.sh/): \
 $ brew install imagemagick
+$ brew install --cask xquartz
+$ brew install tlk/imagemagick-x11/imagemagick
 
 ### Instructions 
-- install ImageMagick
-- $ make
-- $ make run
-- Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
-- You may type "help" any time to see optional input choices and features.
-- Have fun!  
+1.  install ImageMagick
+2.  install an X server (options in prerequisites above)
+3.  make sure to open up the X server
+4.  $ git clone https://github.com/CullenLYe/project02_final.git <dir_name>
+5.  $ cd <dir_name>
+6.  $ make
+7.  $ make run
+8.  Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
+9.  You may type "help" any time to see optional input choices and features.
+10. Have fun!  
  
