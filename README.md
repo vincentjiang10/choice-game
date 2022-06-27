@@ -87,14 +87,15 @@ brew install tlk/imagemagick-x11/imagemagick
 ```
 
 ### Instructions 
-1.  Install ImageMagick
-2.  Install an X server (options in prerequisites above)
-3.  Make sure to open up the X server
-4.  $ `git clone https://github.com/vjiang10/Choice-Game.git <dir_name>`
-5.  $ `cd <dir_name>`
-6.  $ `make`
-7.  $ `make run`
-8.  Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
-9.  You may type "help" any time to see optional input choices and features.
-10. Have fun!  
+1.  Make sure you have GCC installed. To test, run: `gcc -v` in your command prompt or terminal.
+2.  Install ImageMagick (instructions above)
+3.  Install an X server (intructions above)
+4.  Make sure to open up the X server
+5.  $ `git clone https://github.com/vjiang10/Choice-Game.git <dir_name>`
+6.  $ `cd <dir_name>`
+7.  $ `make`
+8.  $ `make run`
+9.  Throughout the program, input a number from 1-3, depending on the choices available to select that choice.
+10.  You may type "help" any time to see optional input choices and features.
+11. Have fun!  
  
