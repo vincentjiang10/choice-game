@@ -75,7 +75,7 @@ Run the following code to install ImageMagick:
 ```
 sudo apt-get install imagemagick
 ```
-NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing Homebrew (https://brew.sh/):
+NOTE: sudo apt-get may not work on the macOS operating system. Try the following alternative after installing [Homebrew](https://brew.sh/):
 ```
 brew install imagemagick
 ```
